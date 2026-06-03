@@ -119,6 +119,87 @@
   footer{background:var(--azul); color:#cfe0e8; padding:24px 44px; font-size:.82rem;}
   .legenda{font-size:.8rem; color:#6a7a82; margin-top:6px;}
   .pill{font-size:.72rem; background:#e3eaed; border-radius:10px; padding:2px 8px; color:#42525a; margin-right:4px;}
+
+
+
+<style>
+/* ===== ANEXO — FARM LAB / LABORATÓRIO VIVO ===== */
+h2.s-anexo{background:linear-gradient(90deg,var(--terra),var(--verde));}
+
+
+.anexo-hero{
+  background:#fff;
+  color:var(--texto, #333);
+  border:1px solid var(--cinza-borda);
+  border-left:6px solid var(--verde);
+  border-radius:14px;
+  padding:26px 28px;
+  margin:18px 0 24px;
+}
+.anexo-hero p{
+  margin:0;
+  font-size:.95rem;
+  color:#333;
+}
+.anexo-hero p b{color:var(--azul);}
+
+
+.benchmark{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0;}
+.bench-card{border:1px solid var(--cinza-borda);border-radius:11px;padding:16px 18px;background:var(--cinza);}
+.bench-card h4{margin:0 0 6px;font-size:1rem;}
+.bench-card.b1{border-top:5px solid var(--verde);}
+.bench-card.b2{border-top:5px solid var(--azul);}
+.bench-card.b3{border-top:5px solid var(--terra);}
+.bench-card ul{margin:8px 0 0;padding-left:18px;}
+.bench-card li{font-size:.84rem;margin-bottom:4px;}
+.fl-camadas{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0;}
+.fl-camada{background:#fff;border:1px solid var(--cinza-borda);border-left:5px solid var(--ouro);border-radius:9px;padding:14px;}
+.fl-camada b{display:block;color:var(--azul);margin-bottom:5px;font-size:.92rem;}
+.fl-camada p{margin:0;font-size:.82rem;}
+.box-winwin{background:linear-gradient(135deg,#fff8e6,#fdf0d0);border:1px solid var(--ouro);border-radius:11px;padding:18px 22px;margin:22px 0;}
+.box-winwin h4{margin:0 0 8px;color:var(--terra);}
+@media(max-width:760px){.benchmark,.fl-camadas{grid-template-columns:1fr;}}
+
+
+
+
+/* Título destacado do Anexo 1 (duas linhas) */
+.anexo-hero .anexo-titulo{
+  margin:0 0 12px;
+  line-height:1.15;
+  text-align:center;
+}
+.anexo-hero .anexo-titulo .anexo-l1{
+  display:block;
+  font-size:2.2rem;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--terra);          /* antes herdava branco — agora colorido */
+}
+.anexo-hero .anexo-titulo .anexo-l2{
+  display:block;
+  font-size:1.5rem;
+  font-weight:600;
+  margin-top:6px;
+  color:var(--azul);           /* segunda linha em azul */
+}
+@media(max-width:760px){
+  .anexo-hero .anexo-titulo .anexo-l1{font-size:1.7rem;}
+  .anexo-hero .anexo-titulo .anexo-l2{font-size:1.2rem;}
+}
+
+
+
+
+
+</style>
+
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -148,6 +229,9 @@
     <li><a href="#cap5-swot" class="sub">— Matriz SWOT</a></li>
     <li><a href="#cap6">Mercado e Risco do Eixo Socioambiental</a></li>
     <li><a href="#cap7">Síntese e Sequenciamento</a></li>
+    <li><a href="#anexo-farmlab">Anexo A · Fazendinha como Farm Lab / Laboratório Vivo</a></li>
+
+
   </ol>
 </nav>
 
@@ -709,6 +793,165 @@
   <div class="info">
     <b>Recomendação executiva.</b> Tratar a atividade de NAE (“potencial de mercado e risco”) como um <b>processo contínuo de <i>stage-gate</i></b>: a cada avanço de TRL, reavaliar mercado e risco antes de comprometer recursos. No Eixo 2, isso protege contra investir em insumo agronomicamente promissor mas ambientalmente restrito (escória com cromo) ou inviável comercialmente — e orienta a tratar os resíduos de silvicultura como economia circular interna e rota de biochar/carbono. No Eixo 1, o equivalente é <b>condicionar a expansão produtiva ao acesso real a mercado</b> e <b>priorizar a apropriação local</b>, garantindo que o investimento social se converta em Licença Social duradoura — e não em passivo reputacional ao término do projeto.
   </div>
+
+
+<!-- ====================== ANEXO A — FARM LAB / LABORATÓRIO VIVO ====================== -->
+<h2 class="secao s-anexo" id="anexo-farmlab">Anexo A · A Fazendinha como “Farm Lab” / Laboratório Vivo</h2>
+
+<div class="anexo-hero">
+
+
+  <div class="anexo-hero">
+  <h3 class="anexo-titulo">
+    <span class="anexo-l1">ANEXO 1</span>
+    <span class="anexo-l2">De área experimental a ecossistema de inovação aberta</span>
+  </h3>
+  
+
+  <p>Proposta de posicionar a <b>Fazendinha da Embrapa Mandioca e Fruticultura</b> (Cruz das Almas/BA)
+  como um <b>Laboratório Vivo (Living Lab)</b> de inovação agropecuária — um ambiente físico e institucional
+  para co-criação, prototipagem, testes e validação de tecnologias com múltiplos atores. O projeto
+  Embrapa–Ferbasa atua como <b>caso âncora inicial</b>, mas a infraestrutura é concebida para servir a
+  outros projetos, parceiros e cadeias produtivas.</p>
+</div>
+
+<p class="lead">O conceito de Farm Lab / Laboratório Vivo já está consolidado no agro brasileiro
+e internacional. Esta proposta inspira-se em dois modelos de referência — o <b>AgNest</b> (Embrapa,
+Jaguariúna/SP) e o <b>InovaTec / Advanced Farm 360 Living Lab</b> (UFSM, Santa Maria/RS) — adaptando-os
+à vocação da Embrapa Mandioca e Fruticultura: agroecologia, fruticultura tropical, mandiocultura,
+saúde do solo e economia circular de resíduos.</p>
+
+<h3>A.1 Benchmark: os modelos de referência</h3>
+<div class="benchmark">
+  <div class="bench-card b1">
+    <h4>AgNest — Embrapa (Jaguariúna/SP)</h4>
+    <p style="font-size:.82rem;margin:0 0 6px;">Primeiro <i>farm lab</i> de inovação do Brasil.</p>
+    <ul>
+      <li>Modelo de <b>governança público-privada</b>, com a Embrapa como instituição âncora de pesquisa.</li>
+      <li>Categorias de parceiros: fundadores, associados, estratégicos e institucionais.</li>
+      <li>~60 ha de área experimental (24 ha floresta + 36 ha culturas anuais), mecanizável.</li>
+      <li>Edital público para seleção de AgTechs (programas tipo “Safrinha”).</li>
+      <li>Vitrine de agricultura digital e sustentável; gestor operacional dedicado.</li>
+    </ul>
+  </div>
+  <div class="bench-card b2">
+    <h4>Advanced Farm 360 / InovaTec — UFSM (Santa Maria/RS)</h4>
+    <p style="font-size:.82rem;margin:0 0 6px;">Laboratório Vivo acadêmico de base na quádrupla hélice.</p>
+    <ul>
+      <li>+130 ha para validação (agricultura e pecuária); +25 ha irrigados; 5 ha de perenes.</li>
+      <li>+20 conexões com laboratórios, +25 grupos de pesquisa, +10 programas de pós-graduação.</li>
+      <li>Co-criação, prototipagem rápida, certificação de processos, suporte de PI e jurídico.</li>
+      <li>Validação de fertilizantes/corretivos, bioinsumos, sementes, máquinas, eletrônica embarcada.</li>
+      <li>Alinhamento aos ODS (2, 4, 8, 9, 12); networking e programa de capacitações.</li>
+    </ul>
+  </div>
+  <div class="bench-card b3">
+    <h4>Fazendinha — Embrapa M&amp;F (Cruz das Almas/BA) <span style="font-size:.72rem;color:var(--terra);">[proposta]</span></h4>
+    <p style="font-size:.82rem;margin:0 0 6px;">Vocação tropical: mandioca, fruteiras, solo e resíduos.</p>
+    <ul>
+      <li>Inserida no campus de 260 ha, com 16 laboratórios, casas de vegetação e estrutura de TT.</li>
+      <li>Foco em <b>agroecologia, fruticultura, mandiocultura e saúde do solo</b> (One Health).</li>
+      <li>Vitrine para <b>remineralizadores</b> e valorização de resíduos (mineração + silvicultura).</li>
+      <li>Base para o Experimento de Longa Duração e para sistemas integrados fruteiras + mandioca.</li>
+      <li>Plataforma multiusuário: aberta a outros projetos e parceiros além da Ferbasa.</li>
+    </ul>
+  </div>
+</div>
+
+<h3>A.2 Por que a Fazendinha tem vocação para Farm Lab</h3>
+<p>A Fazendinha reúne os elementos essenciais de um Laboratório Vivo: uma área real de produção,
+respaldo científico de uma unidade de pesquisa consolidada, capilaridade territorial (ATER,
+comunidades, agricultura familiar) e conexão com cadeias estratégicas do semiárido e Recôncavo baiano.
+A diferença em relação a um campo experimental tradicional é a <b>lógica de inovação aberta</b>:
+o ambiente passa a receber tecnologias de terceiros (empresas, startups, universidades) em condições
+controladas e auditáveis, gerando dados, validação independente e visibilidade para todos os atores.</p>
+
+<div class="fl-camadas">
+  <div class="fl-camada"><b>Infraestrutura física</b><p>Talhões demonstrativos, sistemas integrados fruteiras + mandioca, área para o Experimento de Longa Duração e vitrine tecnológica.</p></div>
+  <div class="fl-camada"><b>Camada científica</b><p>Laboratórios de solo, planta e água; pesquisadores; protocolos de caracterização (NBR 10004, IN MAPA 05/2016) e especiação de Cr.</p></div>
+  <div class="fl-camada"><b>Camada de inovação</b><p>Co-criação, prototipagem, testes de campo, certificação de processos, suporte de PI e jurídico — nos moldes do InovaTec.</p></div>
+  <div class="fl-camada"><b>Camada territorial</b><p>Capacitação, educação ambiental, ATER e conexão com agricultura familiar e mercados institucionais (PNAE/PAA).</p></div>
+</div>
+
+<h3>A.3 Modelo de governança e operação (proposta)</h3>
+<p>Seguindo a referência do AgNest, recomenda-se um <b>modelo de governança público-privada</b> com
+a Embrapa Mandioca e Fruticultura como instituição âncora e categorias diferenciadas de parceria,
+permitindo que o Farm Lab seja sustentável e atenda a múltiplos projetos simultâneos.</p>
+
+<table>
+  <thead>
+    <tr><th>Elemento</th><th>Proposta para a Fazendinha</th><th>Referência</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><b>Instituição âncora</b></td><td>Embrapa Mandioca e Fruticultura (pesquisa, protocolos, credibilidade científica).</td><td>AgNest</td></tr>
+    <tr><td><b>Parceiro fundador inicial</b></td><td>Ferbasa (remineralizadores, resíduos de mineração e silvicultura, agenda ESG/LSO).</td><td>AgNest</td></tr>
+    <tr><td><b>Categorias de parceria</b></td><td>Fundadores · associados · estratégicos · institucionais — abertas a novos entrantes.</td><td>AgNest</td></tr>
+    <tr><td><b>Quádrupla hélice</b></td><td>Empresas + universidade/Embrapa + governo + sociedade civil organizada.</td><td>InovaTec</td></tr>
+    <tr><td><b>Gestão operacional</b></td><td>Gestor operacional dedicado + critérios de uso, agenda de ensaios e contratos.</td><td>AgNest</td></tr>
+    <tr><td><b>Serviços ao parceiro</b></td><td>Co-criação, certificação de processos, suporte de PI/jurídico, networking, capacitação, visibilidade.</td><td>InovaTec</td></tr>
+    <tr><td><b>Seleção de novos projetos</b></td><td>Editais/chamadas públicas periódicas (modelo “Safrinha”) para AgTechs e parceiros.</td><td>AgNest</td></tr>
+  </tbody>
+</table>
+
+<h3>A.4 Oportunidades para o projeto Embrapa–Ferbasa</h3>
+<table>
+  <thead><tr><th>Para a Ferbasa (parceiro fundador)</th><th>Para a Embrapa M&amp;F (âncora)</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Validação independente e em campo real de remineralizadores e resíduos (mineração + silvicultura), gerando respaldo técnico para registro MAPA.</td>
+      <td>Plataforma estruturada para o Experimento de Longa Duração e para pesquisa em saúde do solo e agroecologia.</td>
+    </tr>
+    <tr>
+      <td>Fortalecimento da Licença Social para Operar (LSO) e da agenda de baixo carbono e economia circular.</td>
+      <td>Atração de novos parceiros e fontes de financiamento, diluindo custos da infraestrutura por vários projetos.</td>
+    </tr>
+    <tr>
+      <td>Vitrine de marca e visibilidade ESG, associando a empresa à inovação e à sustentabilidade.</td>
+      <td>Geração de publicações, patentes e cultivares; cumprimento da missão de desenvolvimento territorial.</td>
+    </tr>
+    <tr>
+      <td>Acesso a rede científica e a possíveis novos produtos derivados de seus passivos/resíduos.</td>
+      <td>Reforço da abordagem One Health e do elo com a agricultura familiar e mercados institucionais.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>A.5 Caráter multiprojeto: além da Ferbasa</h3>
+<p>A grande vantagem estratégica do modelo é a <b>escalabilidade</b>. Uma vez estruturada,
+a Fazendinha-Farm Lab pode abrigar simultaneamente diversas frentes — bioinsumos, fertilizantes
+e corretivos alternativos, agricultura digital e sensoriamento, máquinas e implementos, sementes e
+cultivares, sistemas agroflorestais — atraindo empresas, startups e universidades em regime de
+parceria. A Ferbasa entra como o <b>primeiro caso de uso (âncora)</b>, mas cada novo parceiro
+contribui para a sustentabilidade econômica e para a maturação do ecossistema.</p>
+
+<div class="box-winwin">
+  <h4>🤝 Síntese — a lógica win-win do Farm Lab</h4>
+  <p>O Farm Lab transforma uma área experimental em um <b>ativo de inovação compartilhado</b>:
+  a Embrapa amplia o impacto e a sustentabilidade financeira de sua infraestrutura; a Ferbasa
+  valida tecnologias, ganha respaldo regulatório e reforça sua licença social; e o território
+  recebe capacitação, geração de conhecimento e novas oportunidades produtivas. O modelo é
+  replicável e alinhado aos ODS 2, 4, 8, 9 e 12.</p>
+</div>
+
+<h3>A.6 Ações necessárias para implantação</h3>
+<table>
+  <thead><tr><th>Fase</th><th>Ação</th><th>Horizonte</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Estruturar o modelo de gestão e governança e definir critérios de contratação do gestor operacional e serviços (referência AgNest).</td><td>Ano 1</td></tr>
+    <tr><td>2</td><td>Delimitar a área da Fazendinha, mapear infraestrutura disponível e definir a vitrine tecnológica inicial.</td><td>Ano 1</td></tr>
+    <tr><td>3</td><td>Formalizar a Ferbasa como parceiro fundador e definir as categorias de parceria e o regulamento de uso.</td><td>Ano 1–2</td></tr>
+    <tr><td>4</td><td>Selecionar/contratar gestor operacional e implantar os serviços (PI, jurídico, certificação, capacitação).</td><td>Ano 2</td></tr>
+    <tr><td>5</td><td>Operacionalizar o Farm Lab e lançar a primeira chamada pública para novos parceiros/AgTechs.</td><td>Ano 2–3</td></tr>
+    <tr><td>6</td><td>Monitorar indicadores (nº de tecnologias validadas, parceiros, publicações, capacitações) e escalar.</td><td>Ano 3–5</td></tr>
+  </tbody>
+</table>
+
+<div class="nota"><b>Referências do Anexo.</b> AgNest – Farm Lab para AgTechs (Embrapa):
+embrapa.br/busca-de-projetos/-/projeto/222279/agnest-farm-lab-para-agtechs e agnestfarmlab.com;
+Advanced Farm 360 / InovaTec (UFSM) – material institucional anexo. Os números da Fazendinha
+e a estrutura de parceria devem ser confirmados pelas equipes da Embrapa M&amp;F e da Ferbasa.</div>
+<!-- ====================== FIM ANEXO A ====================== -->
+
 
 </main>
 
