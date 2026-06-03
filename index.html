@@ -65,7 +65,6 @@
   .timeline .fase{margin-bottom:16px; position:relative;}
   .timeline .fase:before{content:""; width:13px; height:13px; background:var(--ouro); border-radius:50%; position:absolute; left:-28px; top:4px; border:2px solid #fff;}
   .timeline .fase b{color:var(--azul);}
-  /* Fluxo de processo */
   .processo{display:flex; flex-wrap:wrap; align-items:stretch; gap:6px; margin:18px 0;}
   .processo .etapa{flex:1 1 150px; background:var(--cinza); border:1px solid var(--cinza-borda); border-radius:9px; padding:12px;}
   .processo .etapa .passo{display:inline-flex; width:24px; height:24px; background:var(--verde); color:#fff; border-radius:50%; align-items:center; justify-content:center; font-weight:700; font-size:.8rem; margin-bottom:6px;}
@@ -73,10 +72,10 @@
   .processo .etapa p{margin:0; font-size:.82rem;}
   .processo .seta{display:flex; align-items:center; color:var(--verde-claro); font-size:1.3rem; font-weight:700;}
   @media(max-width:760px){.processo .seta{display:none;} .processo .etapa{flex:1 1 100%;}}
-  /* Destaque caulim */
   .destaque-caulim{background:linear-gradient(135deg,#fff8e6,#fdf0d0); border:1px solid var(--ouro); border-radius:10px; padding:18px 22px; margin:20px 0;}
   .destaque-caulim h4{margin:0 0 8px; color:var(--terra); font-size:1.1rem;}
-  /* SWOT */
+  .destaque-silvi{background:linear-gradient(135deg,#eef8ef,#dff0e2); border:1px solid var(--verde-claro); border-radius:10px; padding:18px 22px; margin:20px 0;}
+  .destaque-silvi h4{margin:0 0 8px; color:var(--verde); font-size:1.1rem;}
   .swot{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0;}
   @media(max-width:760px){.swot{grid-template-columns:1fr;}}
   .swot .quad{border-radius:10px; padding:16px 18px; color:#fff;}
@@ -87,7 +86,6 @@
   .sw-w{background:linear-gradient(135deg,#b22222,#cf4f3a);}
   .sw-o{background:linear-gradient(135deg,#1b6e8c,#3a93b3);}
   .sw-t{background:linear-gradient(135deg,#a1561c,#cf8a4a);}
-  /* Business Model Canvas */
   .canvas{display:grid; grid-template-columns:repeat(5,1fr); grid-auto-rows:minmax(120px,auto); gap:8px; margin:18px 0;}
   .canvas .bloco{border:1px solid var(--cinza-borda); border-radius:8px; padding:11px 12px; background:#fbfcfd; display:flex; flex-direction:column;}
   .canvas .bloco h5{margin:0 0 7px; font-size:.74rem; text-transform:uppercase; letter-spacing:.4px; color:#fff; padding:3px 8px; border-radius:5px; align-self:flex-start;}
@@ -117,7 +115,7 @@
 <header class="capa">
   <span class="tag">Relatório Gerencial · Análise Estratégica</span>
   <h1>Projeto Embrapa–Ferbasa: Remineralizadores, Mercados e Riscos</h1>
-  <p class="sub">Economia circular e desenvolvimento territorial — valorização de resíduos da mineração como remineralizadores de solo e fortalecimento de sistemas agroecológicos na Bahia.</p>
+  <p class="sub">Economia circular e desenvolvimento territorial — valorização de resíduos da mineração e da silvicultura como insumos agrícolas e fortalecimento de sistemas agroecológicos na Bahia.</p>
   <div class="meta">
     Parceria: <b>Embrapa Mandioca e Fruticultura × Ferbasa</b> &nbsp;•&nbsp; Horizonte: 5 anos (60 meses) &nbsp;•&nbsp; Abordagem: Saúde Única (One Health)
   </div>
@@ -132,6 +130,7 @@
     <li><a href="#cap4">Riscos (insumos do Eixo 2)</a></li>
     <li><a href="#cap5">Potencial dos Remineralizadores</a></li>
     <li><a href="#cap5-risco" class="sub">— Matriz de riscos dos remineralizadores</a></li>
+    <li><a href="#cap5-silvi" class="sub">— Resíduos de silvicultura: mercado e risco</a></li>
     <li><a href="#cap5-bm" class="sub">— Modelo de negócios (Canvas)</a></li>
     <li><a href="#cap5-swot" class="sub">— Matriz SWOT</a></li>
     <li><a href="#cap6">Mercado e Risco do Eixo Socioambiental</a></li>
@@ -142,7 +141,7 @@
 <main>
 
   <div class="info">
-    <b>Objetivo deste relatório.</b> Apresentar uma visão gerencial integrada do projeto: resumo executivo, fundamentos técnicos dos remineralizadores, análise de <b>Mercados</b> e <b>Riscos</b> sob responsabilidade do Núcleo de Apoio aos Negócios (NAE), aprofundamento do potencial dos remineralizadores (com matriz de riscos, modelo de negócios e SWOT) e os aspectos de mercado e risco do eixo socioambiental. As recomendações são compatíveis com a atividade de NAE do plano e com o marco regulatório brasileiro de remineralizadores e resíduos.
+    <b>Objetivo deste relatório.</b> Apresentar uma visão gerencial integrada do projeto: resumo executivo, fundamentos técnicos dos remineralizadores, análise de <b>Mercados</b> e <b>Riscos</b> sob responsabilidade do Núcleo de Apoio aos Negócios (NAE), aprofundamento do potencial dos remineralizadores (com matriz de riscos, resíduos de silvicultura, modelo de negócios e SWOT) e os aspectos de mercado e risco do eixo socioambiental. As recomendações são compatíveis com a atividade de NAE do plano e com o marco regulatório brasileiro de remineralizadores e resíduos.
   </div>
 
   <!-- ====================== CAPÍTULO 1 — RESUMO GERAL ====================== -->
@@ -156,10 +155,10 @@
   </div>
 
   <h3>1.1 O que é o projeto</h3>
-  <p>A parceria entre a <b>Embrapa Mandioca e Fruticultura</b> e a <b>Ferbasa</b> propõe uma plataforma integrada de pesquisa e inovação para avaliar o potencial agronômico e ambiental de resíduos da mineração como <b>remineralizadores de solo</b>, ao mesmo tempo em que fortalece sistemas agroecológicos e cadeias produtivas locais em territórios impactados por mineração e silvicultura na Bahia. A iniciativa une ciência, economia circular e desenvolvimento territorial sob a abordagem de Saúde Única.</p>
+  <p>A parceria entre a <b>Embrapa Mandioca e Fruticultura</b> e a <b>Ferbasa</b> propõe uma plataforma integrada de pesquisa e inovação para avaliar o potencial agronômico e ambiental de resíduos da mineração e da silvicultura como <b>remineralizadores e insumos de solo</b>, ao mesmo tempo em que fortalece sistemas agroecológicos e cadeias produtivas locais em territórios impactados por mineração e silvicultura na Bahia. A iniciativa une ciência, economia circular e desenvolvimento territorial sob a abordagem de Saúde Única.</p>
 
   <h3>1.2 Por que existe — a motivação</h3>
-  <p>A mineração e a expansão de plantios de eucalipto transformam o território, com implicações ambientais, sociais e sanitárias. A mineração gera resíduos e materiais estéreis cuja composição pode ter <b>valor agronômico</b> — parte deles com potencial de uso como remineralizadores. Aproveitá-los de forma responsável representa uma alternativa de <b>economia circular</b>: agrega valor a subprodutos minerais e reduz passivos ambientais. Ao mesmo tempo, certos resíduos contêm elementos potencialmente tóxicos (como o cromo), exigindo avaliação rigorosa de segurança. O projeto endereça esses dois lados — oportunidade e cautela — de forma integrada.</p>
+  <p>A mineração e a expansão de plantios de eucalipto transformam o território, com implicações ambientais, sociais e sanitárias. Tanto a mineração quanto a silvicultura geram resíduos e materiais cuja composição pode ter <b>valor agronômico</b> — parte deles com potencial de uso como remineralizadores ou condicionadores de solo. Aproveitá-los de forma responsável representa uma alternativa de <b>economia circular</b>: agrega valor a subprodutos e reduz passivos ambientais. Ao mesmo tempo, certos resíduos contêm elementos potencialmente tóxicos (como o cromo) ou apresentam composição variável, exigindo avaliação rigorosa de segurança. O projeto endereça esses dois lados — oportunidade e cautela — de forma integrada.</p>
 
   <h3>1.3 Como se estrutura — os dois eixos</h3>
   <div class="grid g2">
@@ -169,7 +168,7 @@
     </div>
     <div class="card" style="border-top:4px solid var(--verde);">
       <h4>Eixo 2 — Avaliação de resíduos para uso agronômico</h4>
-      <p>Avalia a viabilidade agronômica e ambiental do uso de resíduos de mineração e indústria como remineralizadores e insumos, com ênfase na caracterização geoquímica, mobilidade de elementos potencialmente tóxicos e análise de risco. Inclui ensaios controlados (mandioca-modelo), plantios de eucalipto e o Experimento de Longa Duração.</p>
+      <p>Avalia a viabilidade agronômica e ambiental do uso de resíduos de <b>mineração, indústria e silvicultura</b> (cascas, cavacos, cinzas de biomassa florestal de eucalipto) como remineralizadores, condicionadores e insumos, com ênfase na caracterização, mobilidade de elementos potencialmente tóxicos e análise de risco. Inclui ensaios controlados (mandioca-modelo), plantios de eucalipto e o Experimento de Longa Duração.</p>
     </div>
   </div>
 
@@ -179,6 +178,7 @@
     <tbody>
       <tr><td>Insumo de resíduos de mineração</td><td>Remineralizador para agricultura orgânica/regenerativa</td><td>TRL 4 (2º ano) → TRL 6 (5º ano)</td></tr>
       <tr><td>Insumo à base de pirolenhoso</td><td>Bioinsumo para controle de pragas</td><td>TRL 4 → TRL 6</td></tr>
+      <tr><td>Aproveitamento de resíduos de silvicultura</td><td>Condicionador de solo / biochar de biomassa florestal</td><td>Prática agropecuária / TRL a definir</td></tr>
       <tr><td>Experimento de Longa Duração</td><td>Plataforma de saúde do solo e agricultura regenerativa</td><td>Base experimental (TRL 5)</td></tr>
       <tr><td>Unidade de Referência (Fazendinha)</td><td>Capacitação, demonstração e transferência de tecnologia</td><td>Contínua</td></tr>
       <tr><td>Análise de mercado e risco (NAE)</td><td>Informação estruturada para decisão de negócio</td><td>Contínua (stage-gate)</td></tr>
@@ -189,7 +189,7 @@
   <h3>1.5 Atores envolvidos</h3>
   <p>Equipe multidisciplinar da Embrapa (pesquisadores das áreas de solo, fruticultura, mandioca, entomologia, carbono e socioeconomia, além de NAE, NIT, STT, SISAGRE e NUGENE), em parceria com a Ferbasa e seu programa de Responsabilidade Social, com apoio de fundação (Funarbe) para gestão. As comunidades dos territórios impactados são participantes ativas, não apenas beneficiárias.</p>
 
-  <div class="info"><b>Em uma frase.</b> O projeto busca transformar <b>resíduos minerais em insumos agrícolas</b>, fortalecer a <b>saúde do solo</b> e promover <b>inovação territorial</b> em regiões influenciadas pela mineração e silvicultura — com rigor científico, segurança ambiental e protagonismo das comunidades.</div>
+  <div class="info"><b>Em uma frase.</b> O projeto busca transformar <b>resíduos de mineração e silvicultura em insumos agrícolas</b>, fortalecer a <b>saúde do solo</b> e promover <b>inovação territorial</b> em regiões influenciadas pela mineração e silvicultura — com rigor científico, segurança ambiental e protagonismo das comunidades.</div>
 
   <!-- ====================== CAPÍTULO 2 — REMINERALIZADORES (TÉCNICO) ====================== -->
   <h2 class="secao s-rem" id="cap2">2 · Remineralizadores: conceito, geração e aplicações</h2>
@@ -259,7 +259,7 @@
 
   <!-- ====================== CAPÍTULO 3 — MERCADOS ====================== -->
   <h2 class="secao s-mercado" id="cap3">3 · Mercados</h2>
-  <p class="lead">Avaliação do potencial de mercado dos insumos derivados de resíduos de mineração e indústria, e das ações necessárias para transformar o resultado científico em valor econômico.</p>
+  <p class="lead">Avaliação do potencial de mercado dos insumos derivados de resíduos de mineração, indústria e silvicultura, e das ações necessárias para transformar o resultado científico em valor econômico.</p>
 
   <h3>3.1 Contexto de mercado</h3>
   <p>O Brasil construiu nos últimos anos um arcabouço legal favorável à valorização de pós de rocha e subprodutos minerais como remineralizadores de solo (Lei nº 12.890/2013, Decreto nº 8.384/2014 e Instrução Normativa MAPA nº 05/2016). Esse marco abriu uma via formal para que materiais hoje tratados como passivo da mineração — caso de parte dos estéreis e resíduos da Ferbasa — sejam reposicionados como <b>insumos agrícolas registrados</b>. O segmento, contudo, ainda é jovem: há dezenas de produtos/empresas registrados no MAPA, e o consumo é sensível ao preço relativo dos fertilizantes químicos importados, o que gera oscilações de demanda.</p>
@@ -277,12 +277,13 @@
     <tbody>
       <tr><td>Remineralizador de pó de rocha (composto/Bokashi enriquecido)</td><td>Agricultura orgânica e regenerativa; fruticultura; cafeicultura</td><td>Baixo carbono, liberação gradual de nutrientes, apelo de economia circular</td><td><span class="badge b-alto">Alta</span></td></tr>
       <tr><td>Insumo à base de líquido pirolenhoso (controle de pragas)</td><td>Produção orgânica de fruteiras e mandioca; bioinsumos</td><td>Mercado de bioinsumos em forte expansão; baixo custo de matéria-prima</td><td><span class="badge b-alto">Alta</span></td></tr>
+      <tr><td>Resíduos de silvicultura (cinzas, cascas, biochar)</td><td>Condicionador de solo; correção de acidez; reciclagem de nutrientes na própria silvicultura</td><td>Volume disponível na operação florestal; reciclagem de K, Ca e Mg</td><td><span class="badge b-medio">Média</span></td></tr>
       <tr><td>Biochar / carvão para adaptação climática</td><td>Sequestro de carbono; mercado de créditos; condicionador de solo</td><td>Conexão com agenda ESG e mercado voluntário de carbono</td><td><span class="badge b-medio">Média</span></td></tr>
       <tr><td>Escória industrial (corretivo/fonte de Ca-Mg-Si)</td><td>Sistemas <b>não alimentares</b> (eucalipto); correção de acidez</td><td>Volume disponível e baixo custo; restrito pela presença de cromo</td><td><span class="badge b-medio">Média (condicionada ao risco)</span></td></tr>
     </tbody>
   </table>
 
-  <div class="nota"><b>Insight estratégico.</b> A maior atratividade comercial não está na escória (limitada pela questão do cromo), mas no <b>remineralizador de pó de rocha</b> e no <b>pirolenhoso</b>, que combinam mercado regulado/em crescimento, baixo custo de matéria-prima e narrativa de sustentabilidade alinhada à marca da Ferbasa. A escória deve ser tratada como linha de <b>valorização de passivo</b> em uso não alimentar, não como produto de prateleira.</div>
+  <div class="nota"><b>Insight estratégico.</b> A maior atratividade comercial não está na escória (limitada pela questão do cromo), mas no <b>remineralizador de pó de rocha</b> e no <b>pirolenhoso</b>, que combinam mercado regulado/em crescimento, baixo custo de matéria-prima e narrativa de sustentabilidade alinhada à marca da Ferbasa. Os resíduos de silvicultura têm forte apelo de economia circular interna (reciclagem de nutrientes na própria operação florestal), mas mercado externo limitado. A escória deve ser tratada como linha de <b>valorização de passivo</b> em uso não alimentar.</div>
 
   <h3>3.3 Ações necessárias — Mercado</h3>
   <ul class="acoes">
@@ -335,7 +336,7 @@
 
   <!-- ====================== CAPÍTULO 5 — POTENCIAL DOS REMINERALIZADORES ====================== -->
   <h2 class="secao s-rem" id="cap5">5 · Potencial dos Remineralizadores de Solo</h2>
-  <p class="lead">O coração da proposta: transformar subprodutos minerais em insumos que devolvem nutrientes ao solo, fechando o ciclo da economia circular.</p>
+  <p class="lead">O coração da proposta: transformar subprodutos minerais e florestais em insumos que devolvem nutrientes ao solo, fechando o ciclo da economia circular.</p>
 
   <h3>5.1 Potencial específico dos materiais da Ferbasa</h3>
   <table>
@@ -343,6 +344,7 @@
     <tbody>
       <tr><td>Pó de rocha / estéreis da mineração de cromita</td><td>Fonte potencial de Ca, Mg, Si e micronutrientes; candidato a registro MAPA</td><td>Depende da composição — caracterizar ao menos 3 tipos (conforme plano)</td></tr>
       <tr><td>Escória de ferro-cromo (Fe-Cr)</td><td>Corretivo de acidez e fonte de Ca/Mg/Si; literatura indica efeito positivo em fertilidade</td><td><b>Condicionada</b> à especiação do cromo e ao uso não alimentar</td></tr>
+      <tr><td>Resíduos de silvicultura (cinzas, cascas, cavacos)</td><td>Reciclagem de K, Ca, Mg; correção de acidez; matéria orgânica</td><td>Composição variável; detalhado na seção 5.4</td></tr>
       <tr><td>Remineralizador enriquecido (composto/Bokashi)</td><td>Insumo de maior valor agregado para agricultura orgânica/regenerativa</td><td>Desenvolvimento em casa de vegetação → campo (TRL 4→6)</td></tr>
     </tbody>
   </table>
@@ -365,7 +367,43 @@
     </tbody>
   </table>
 
-  <h3 id="cap5-bm">5.4 Modelo de negócios dos remineralizadores</h3>
+  <!-- 5.4 RESÍDUOS DE SILVICULTURA -->
+  <h3 id="cap5-silvi">5.4 Resíduos de silvicultura: mercado e risco</h3>
+  <p>O projeto contempla os territórios de <b>silvicultura (plantios de eucalipto em larga escala)</b>, que geram volumes expressivos de resíduos — cascas, galhos, folhas, cavacos e, sobretudo, <b>cinzas de biomassa florestal</b> provenientes da queima de biomassa em caldeiras. Esses materiais têm potencial agronômico próprio, com lógica de mercado e perfil de risco distintos dos resíduos de mineração.</p>
+
+  <div class="destaque-silvi">
+    <h4>🌳 Potencial agronômico dos resíduos florestais</h4>
+    <p>As <b>cinzas de biomassa florestal</b> de eucalipto concentram nutrientes que estavam na madeira, sendo ricas em <b>potássio (K), cálcio (Ca) e magnésio (Mg)</b>, com pH alcalino. Por isso atuam como <b>corretivo de acidez</b> e fonte de nutrientes, com potencial de substituir parcialmente calcário e adubos potássicos. As cascas e cavacos, por sua vez, fornecem <b>matéria orgânica</b> e podem ser compostados ou convertidos em <b>biochar</b> (carvão vegetal) — rota já prevista no plano (“uso de Carvão”), que melhora a retenção de água e nutrientes e contribui para o sequestro de carbono.</p>
+  </div>
+
+  <h4>Aspectos de mercado dos resíduos de silvicultura</h4>
+  <table>
+    <thead><tr><th>Aspecto</th><th>Avaliação</th></tr></thead>
+    <tbody>
+      <tr><td>Modelo predominante</td><td><b>Economia circular interna</b>: reciclagem dos nutrientes de volta ao próprio plantio de eucalipto, reduzindo a compra de fertilizantes da silvicultura</td></tr>
+      <tr><td>Mercado externo</td><td>Limitado — baixa densidade de valor e composição variável dificultam a venda como produto registrado; potencial maior como insumo local/regional</td></tr>
+      <tr><td>Ganho econômico principal</td><td>Redução de custo de adubação na silvicultura e de gestão do resíduo, mais do que receita de venda</td></tr>
+      <tr><td>Rota de maior valor</td><td><b>Biochar</b>, pela conexão com o mercado de carbono e com a agenda ESG</td></tr>
+      <tr><td>Sinergia com o projeto</td><td>Pode compor formulações junto a remineralizadores minerais (matéria orgânica + minerais) e o Experimento de Longa Duração</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Matriz de risco dos resíduos de silvicultura</h4>
+  <table>
+    <thead><tr><th>Risco</th><th>Natureza</th><th>Impacto</th><th>Prob.</th><th>Mitigação</th></tr></thead>
+    <tbody>
+      <tr><td>Composição variável das cinzas (lote a lote)</td><td>Técnico</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-alto">Alta</span></td><td>Caracterização por lote; homogeneização; recomendação de dose baseada em análise</td></tr>
+      <tr><td>Alcalinidade elevada / risco de elevação excessiva de pH</td><td>Agronômico</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-medio">Média</span></td><td>Dosagem controlada; monitoramento de pH do solo</td></tr>
+      <tr><td>Concentração de metais pesados nas cinzas</td><td>Ambiental/Sanitário</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-baixo">Baixa</span></td><td>Análise de metais; ensaios de lixiviação; uso conforme limites</td></tr>
+      <tr><td>Material particulado/poeira no manuseio das cinzas</td><td>Saúde ocupacional</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-medio">Média</span></td><td>EPI; umidade no manuseio; boas práticas operacionais</td></tr>
+      <tr><td>Sazonalidade e logística da geração do resíduo</td><td>Operacional</td><td><span class="badge b-baixo">Baixo</span></td><td><span class="badge b-medio">Média</span></td><td>Planejamento de armazenamento; uso local próximo à geração</td></tr>
+      <tr><td>Ausência de enquadramento como produto registrável</td><td>Regulatório</td><td><span class="badge b-baixo">Baixo</span></td><td><span class="badge b-medio">Média</span></td><td>Uso como prática agropecuária interna; avaliar registro só se houver mercado</td></tr>
+    </tbody>
+  </table>
+
+  <div class="nota"><b>Leitura gerencial — silvicultura.</b> Os resíduos de silvicultura têm risco ambiental <b>menor</b> que os de mineração (não envolvem cromo), porém seu valor está principalmente na <b>reciclagem interna de nutrientes</b> e na rota do <b>biochar</b>, e não em um produto comercial de prateleira. A recomendação é tratá-los como <b>economia circular da própria operação florestal</b> e como matéria orgânica complementar às formulações minerais, com a rota de biochar avaliada à parte pela sua conexão com o mercado de carbono.</div>
+
+  <h3 id="cap5-bm">5.5 Modelo de negócios dos remineralizadores</h3>
   <p>Três rotas de negócio são possíveis, não mutuamente exclusivas. A escolha deve ser definida pelo NAE/NIT à luz dos resultados técnicos e da estratégia da Ferbasa.</p>
   <table>
     <thead><tr><th>Rota</th><th>Descrição</th><th>Quem produz/vende</th><th>Indicação</th></tr></thead>
@@ -406,6 +444,7 @@
       <h5 class="h-recursos">🏭 Recursos-chave</h5>
       <ul>
         <li>Resíduo/pó de rocha (matéria-prima de baixo custo)</li>
+        <li>Resíduos de silvicultura (matéria orgânica e cinzas)</li>
         <li>Tecnologia de formulação da Embrapa</li>
         <li>Registro MAPA e propriedade intelectual</li>
         <li>Marca e reputação da Ferbasa</li>
@@ -472,7 +511,7 @@
       <ul>
         <li>Venda do remineralizador enriquecido (produto principal)</li>
         <li>Linha premium para mercado orgânico/regenerativo</li>
-        <li>Potencial receita de créditos de carbono</li>
+        <li>Potencial receita de créditos de carbono (inclui biochar florestal)</li>
         <li>Royalties de licenciamento (rota B, complementar)</li>
         <li>Venda de matéria-prima a terceiros (rota C, complementar)</li>
         <li>Ganho intangível: valorização de marca e Licença Social</li>
@@ -482,7 +521,7 @@
 
   <div class="nota"><b>Leitura gerencial do Canvas.</b> A vantagem competitiva nasce na base do modelo: a <b>matéria-prima é um passivo já existente</b> da operação (custo de gestão de resíduo convertido em insumo), enquanto a <b>logística é o principal risco de custo</b> por causa da baixa densidade de valor do pó de rocha — daí a recomendação de mercado regional de raio curto e foco no produto enriquecido de maior valor agregado. As receitas combinam o produto principal com fontes complementares (carbono, licenciamento) e o retorno intangível da Licença Social para Operar.</div>
 
-  <h3 id="cap5-swot">5.5 Matriz SWOT — remineralizadores derivados da Ferbasa</h3>
+  <h3 id="cap5-swot">5.6 Matriz SWOT — remineralizadores derivados da Ferbasa</h3>
   <div class="swot">
     <div class="quad sw-s">
       <h4>Forças (Strengths)</h4>
@@ -492,6 +531,7 @@
         <li>Tecnologia e credibilidade científica da Embrapa</li>
         <li>Alinhamento com economia circular e agenda ESG</li>
         <li>Validação robusta via Experimento de Longa Duração (T4)</li>
+        <li>Disponibilidade de resíduos de mineração e de silvicultura</li>
       </ul>
     </div>
     <div class="quad sw-w">
@@ -501,6 +541,7 @@
         <li>Custo logístico do pó de rocha (baixa densidade de valor)</li>
         <li>Dissolução lenta — resposta agronômica menos imediata</li>
         <li>TRL inicial baixo; tempo até produto comercial (até 5 anos)</li>
+        <li>Composição variável dos resíduos de silvicultura</li>
         <li>Necessidade de registro e controle de qualidade contínuo</li>
       </ul>
     </div>
@@ -528,9 +569,10 @@
 
   <div class="nota"><b>Da incerteza ao valor.</b> O potencial dos remineralizadores só se converte em produto e mercado se sustentado por três pilares simultâneos: <b>(1)</b> evidência agronômica robusta, <b>(2)</b> segurança ambiental comprovada (especialmente quanto ao cromo) e <b>(3)</b> enquadramento regulatório no MAPA. A proposta endereça os três — o sucesso depende de mantê-los integrados.</div>
 
-  <h3>5.6 Ações necessárias — Remineralizadores</h3>
+  <h3>5.7 Ações necessárias — Remineralizadores</h3>
   <ul class="acoes">
     <li><b>Caracterizar física, química e mineralogicamente</b> ao menos três tipos de pó de rocha, distinguindo perfil benéfico de perfil com restrição. <span class="pill">Eixo 2</span></li>
+    <li><b>Caracterizar e testar os resíduos de silvicultura</b> (cinzas, cascas, biochar) como condicionadores e fonte de matéria orgânica. <span class="pill">Fabiana + Renai</span></li>
     <li><b>Desenvolver e testar formulações</b> (remineralizador enriquecido, composto, Bokashi) em casa de vegetação e campo. <span class="pill">Ana + Renai</span></li>
     <li><b>Validar no Experimento de Longa Duração</b> (tratamento T4) com indicadores de solo, carbono e produtividade. <span class="pill">Mauricio + equipe</span></li>
     <li><b>Definir a rota de negócio</b> (A, B ou C) e buscar registro/qualificação no MAPA dos materiais aptos. <span class="pill">NIT + NAE</span></li>
@@ -611,14 +653,14 @@
   <p class="lead">Como Mercados, Riscos, Remineralizadores e o Eixo Socioambiental se conectam ao longo dos 60 meses do projeto.</p>
 
   <div class="timeline">
-    <div class="fase"><b>Ano 1 — Diagnóstico e linha de base.</b> Caracterização dos resíduos e especiação do cromo; estudo de mercado dos insumos (NAE); diagnóstico socioambiental participativo e mapeamento de canais de comercialização; instalação do Experimento de Longa Duração.</div>
-    <div class="fase"><b>Anos 2–3 — Desenvolvimento (TRL 4).</b> Formulação dos insumos; ensaios controlados com mandioca; primeiros resultados de risco ambiental; implantação de hortas/unidades demonstrativas e capacitações; acesso inicial a mercados institucionais (PNAE/PAA).</div>
+    <div class="fase"><b>Ano 1 — Diagnóstico e linha de base.</b> Caracterização dos resíduos de mineração e silvicultura e especiação do cromo; estudo de mercado dos insumos (NAE); diagnóstico socioambiental participativo e mapeamento de canais de comercialização; instalação do Experimento de Longa Duração.</div>
+    <div class="fase"><b>Anos 2–3 — Desenvolvimento (TRL 4).</b> Formulação dos insumos; ensaios controlados com mandioca; testes com cinzas/biochar de silvicultura; primeiros resultados de risco ambiental; implantação de hortas/unidades demonstrativas e capacitações; acesso inicial a mercados institucionais (PNAE/PAA).</div>
     <div class="fase"><b>Anos 3–4 — Validação de campo.</b> Ensaios em eucalipto; evolução do T4; análise integrada de risco; consolidação da organização produtiva comunitária e dos multiplicadores locais; gate de decisão de viabilidade comercial e definição da rota de negócio.</div>
     <div class="fase"><b>Ano 5 — Escalonamento (TRL 6), difusão e legado.</b> Qualificação/registro do insumo; recomendações técnicas; comunicação de mercado/ESG; transferência de tecnologia; consolidação da autonomia das comunidades como estratégia de continuidade e Licença Social.</div>
   </div>
 
   <div class="info">
-    <b>Recomendação executiva.</b> Tratar a atividade de NAE (“potencial de mercado e risco”) como um <b>processo contínuo de <i>stage-gate</i></b>: a cada avanço de TRL, reavaliar mercado e risco antes de comprometer recursos. No Eixo 2, isso protege contra investir em insumo agronomicamente promissor mas ambientalmente restrito (escória com cromo) ou inviável comercialmente. No Eixo 1, o equivalente é <b>condicionar a expansão produtiva ao acesso real a mercado</b> e <b>priorizar a apropriação local</b>, garantindo que o investimento social se converta em Licença Social duradoura — e não em passivo reputacional ao término do projeto.
+    <b>Recomendação executiva.</b> Tratar a atividade de NAE (“potencial de mercado e risco”) como um <b>processo contínuo de <i>stage-gate</i></b>: a cada avanço de TRL, reavaliar mercado e risco antes de comprometer recursos. No Eixo 2, isso protege contra investir em insumo agronomicamente promissor mas ambientalmente restrito (escória com cromo) ou inviável comercialmente — e orienta a tratar os resíduos de silvicultura como economia circular interna e rota de biochar/carbono. No Eixo 1, o equivalente é <b>condicionar a expansão produtiva ao acesso real a mercado</b> e <b>priorizar a apropriação local</b>, garantindo que o investimento social se converta em Licença Social duradoura — e não em passivo reputacional ao término do projeto.
   </div>
 
 </main>
