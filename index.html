@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório Gerencial — Mercados, Riscos e Remineralizadores | Parceria Embrapa–Ferbasa</title>
+<style>
+  :root{
+    --azul:#0b3d59; --azul-claro:#1b6e8c; --verde:#2e7d32; --verde-claro:#66bb6a;
+    --terra:#a1561c; --ouro:#c8a02c; --vermelho:#b22222; --laranja:#e07b1c;
+    --roxo:#5b3a8c; --cinza:#f4f6f7; --cinza-borda:#d8dee2; --texto:#23323a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    margin:0; color:var(--texto); background:#eef2f3; line-height:1.55;
+  }
+  .wrap{max-width:1080px; margin:0 auto; background:#fff; box-shadow:0 0 24px rgba(0,0,0,.08);}
+  header.capa{
+    background:linear-gradient(135deg,var(--azul) 0%,var(--azul-claro) 55%,var(--verde) 100%);
+    color:#fff; padding:48px 44px 40px;
+  }
+  header.capa .tag{
+    display:inline-block; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.4);
+    padding:5px 14px; border-radius:20px; font-size:.78rem; letter-spacing:.5px; text-transform:uppercase; margin-bottom:18px;
+  }
+  header.capa h1{font-size:1.9rem; margin:0 0 10px; line-height:1.25;}
+  header.capa p.sub{font-size:1.02rem; margin:0; opacity:.92; max-width:760px;}
+  header.capa .meta{margin-top:24px; font-size:.85rem; opacity:.85; border-top:1px solid rgba(255,255,255,.25); padding-top:14px;}
+  /* Sumário */
+  nav.toc{background:#0a3247; color:#dce8ee; padding:20px 44px;}
+  nav.toc b{display:block; font-size:.8rem; text-transform:uppercase; letter-spacing:1px; color:#7fc4dd; margin-bottom:10px;}
+  nav.toc ol{margin:0; padding-left:20px; columns:2; column-gap:34px;}
+  nav.toc li{margin:5px 0;}
+  nav.toc a{color:#dce8ee; text-decoration:none; font-size:.92rem;}
+  nav.toc a:hover{color:#fff; text-decoration:underline;}
+  @media(max-width:760px){nav.toc ol{columns:1;}}
+  main{padding:36px 44px 50px;}
+  h2.secao{font-size:1.5rem; margin:46px 0 6px; padding:14px 18px; border-radius:8px; color:#fff; scroll-margin-top:14px;}
+  h2.s-mercado{background:linear-gradient(90deg,var(--azul-claro),#3a93b3);}
+  h2.s-risco{background:linear-gradient(90deg,var(--vermelho),var(--laranja));}
+  h2.s-rem{background:linear-gradient(90deg,var(--verde),var(--verde-claro));}
+  h2.s-social{background:linear-gradient(90deg,var(--terra),#cf8a4a);}
+  h2.s-sintese{background:linear-gradient(90deg,var(--roxo),#8e6bc0);}
+  .lead{color:#4a5b63; font-size:.97rem; margin:6px 0 20px;}
+  h3{color:var(--azul); font-size:1.12rem; margin:28px 0 8px; border-left:4px solid var(--ouro); padding-left:10px;}
+  h4{color:var(--azul); margin:18px 0 4px; font-size:1rem;}
+  p{margin:10px 0;}
+  .grid{display:grid; gap:16px; margin:18px 0;}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  @media(max-width:760px){.g2,.g3{grid-template-columns:1fr;} main{padding:24px;} header.capa{padding:32px 24px;} nav.toc{padding:20px 24px;}}
+  .card{border:1px solid var(--cinza-borda); border-radius:10px; padding:16px 18px; background:var(--cinza);}
+  .card h4{margin:0 0 8px; font-size:1rem; color:var(--azul);}
+  .kpi{text-align:center; border-radius:10px; padding:18px 12px; color:#fff;}
+  .kpi .num{font-size:1.8rem; font-weight:700; display:block;}
+  .kpi .lbl{font-size:.8rem; opacity:.92;}
+  .k-azul{background:var(--azul-claro);} .k-verde{background:var(--verde);}
+  .k-ouro{background:var(--ouro);} .k-terra{background:var(--terra);}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.9rem;}
+  th,td{border:1px solid var(--cinza-borda); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{background:var(--azul); color:#fff; font-weight:600;}
+  tbody tr:nth-child(even){background:#f7fafb;}
+  .badge{display:inline-block; padding:2px 9px; border-radius:12px; font-size:.74rem; font-weight:600; color:#fff;}
+  .b-alto{background:var(--vermelho);} .b-medio{background:var(--laranja);} .b-baixo{background:var(--verde);}
+  .alerta{border-left:5px solid var(--vermelho); background:#fdecea; padding:12px 16px; border-radius:0 8px 8px 0; margin:16px 0;}
+  .nota{border-left:5px solid var(--verde); background:#eef8ef; padding:12px 16px; border-radius:0 8px 8px 0; margin:16px 0;}
+  .info{border-left:5px solid var(--azul-claro); background:#e9f3f7; padding:12px 16px; border-radius:0 8px 8px 0; margin:16px 0;}
+  ul.acoes{list-style:none; padding:0; margin:14px 0;}
+  ul.acoes li{padding:9px 12px 9px 38px; position:relative; border-bottom:1px solid var(--cinza-borda);}
+  ul.acoes li:before{content:"➜"; position:absolute; left:12px; color:var(--verde); font-weight:700;}
+  .timeline{border-left:3px solid var(--azul-claro); margin:18px 0 18px 8px; padding-left:20px;}
+  .timeline .fase{margin-bottom:16px; position:relative;}
+  .timeline .fase:before{content:""; width:13px; height:13px; background:var(--ouro); border-radius:50%; position:absolute; left:-28px; top:4px; border:2px solid #fff;}
+  .timeline .fase b{color:var(--azul);}
+  /* SWOT */
+  .swot{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0;}
+  @media(max-width:760px){.swot{grid-template-columns:1fr;}}
+  .swot .quad{border-radius:10px; padding:16px 18px; color:#fff;}
+  .swot .quad h4{color:#fff; margin:0 0 8px; font-size:1.05rem; border-bottom:1px solid rgba(255,255,255,.4); padding-bottom:6px;}
+  .swot .quad ul{margin:8px 0 0; padding-left:18px;}
+  .swot .quad li{margin:5px 0; font-size:.88rem;}
+  .sw-s{background:linear-gradient(135deg,#2e7d32,#4f9c52);}
+  .sw-w{background:linear-gradient(135deg,#b22222,#cf4f3a);}
+  .sw-o{background:linear-gradient(135deg,#1b6e8c,#3a93b3);}
+  .sw-t{background:linear-gradient(135deg,#a1561c,#cf8a4a);}
+  /* Business Model Canvas simplificado */
+  .bmc{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:18px 0;}
+  @media(max-width:760px){.bmc{grid-template-columns:1fr;}}
+  .bmc .bloco{border:1px solid var(--cinza-borda); border-radius:9px; padding:13px 15px; background:#fbfcfd;}
+  .bmc .bloco h5{margin:0 0 6px; font-size:.85rem; text-transform:uppercase; letter-spacing:.4px; color:var(--verde);}
+  .bmc .bloco p{margin:0; font-size:.87rem;}
+  .bmc .destaque{grid-column:1 / -1; background:#eef8ef; border-color:var(--verde-claro);}
+
+
+
+
+
+  /* ===== Business Model Canvas gerencial (9 blocos) ===== */
+  .canvas{display:grid; grid-template-columns:repeat(5,1fr); grid-auto-rows:minmax(120px,auto); gap:8px; margin:18px 0;}
+  .canvas .bloco{border:1px solid var(--cinza-borda); border-radius:8px; padding:11px 12px; background:#fbfcfd; display:flex; flex-direction:column;}
+  .canvas .bloco h5{margin:0 0 7px; font-size:.74rem; text-transform:uppercase; letter-spacing:.4px; color:#fff; padding:3px 8px; border-radius:5px; display:inline-block;}
+  .canvas .bloco ul{margin:0; padding-left:16px;}
+  .canvas .bloco li{margin:3px 0; font-size:.82rem; line-height:1.35;}
+  .canvas .icone{font-size:.95rem; margin-right:3px;}
+  /* posicionamento dos 9 blocos na grade clássica */
+  .c-parcerias  {grid-column:1; grid-row:1 / span 2;}
+  .c-atividades {grid-column:2; grid-row:1;}
+  .c-recursos   {grid-column:2; grid-row:2;}
+  .c-valor      {grid-column:3; grid-row:1 / span 2; background:#eef8ef; border-color:var(--verde-claro);}
+  .c-relac      {grid-column:4; grid-row:1;}
+  .c-canais     {grid-column:4; grid-row:2;}
+  .c-segmentos  {grid-column:5; grid-row:1 / span 2;}
+  .c-custos     {grid-column:1 / span 2; grid-row:3;}
+  .c-receitas   {grid-column:3 / span 3; grid-row:3;}
+  /* cores dos títulos por bloco */
+  .h-parcerias{background:#5b3a8c;} .h-atividades{background:#1b6e8c;} .h-recursos{background:#2e7d32;}
+  .h-valor{background:#a1561c;} .h-relac{background:#c8a02c;} .h-canais{background:#0b3d59;}
+  .h-segmentos{background:#b22222;} .h-custos{background:#42525a;} .h-receitas{background:#2e7d32;}
+  @media(max-width:760px){
+    .canvas{grid-template-columns:1fr;}
+    .canvas .bloco{grid-column:1 !important; grid-row:auto !important;}
+  }
+
+
+
+
+
+
+  footer{background:var(--azul); color:#cfe0e8; padding:24px 44px; font-size:.82rem;}
+  .legenda{font-size:.8rem; color:#6a7a82; margin-top:6px;}
+  .pill{font-size:.72rem; background:#e3eaed; border-radius:10px; padding:2px 8px; color:#42525a; margin-right:4px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="capa">
+  <span class="tag">Relatório Gerencial · Análise Estratégica</span>
+  <h1>Mercados, Riscos e Potencial de Remineralizadores de Solo</h1>
+  <p class="sub">Subsídio à estruturação da parceria <b>Embrapa Mandioca e Fruticultura × Ferbasa</b> — Economia circular, valorização de resíduos da mineração e fortalecimento de sistemas agroecológicos na Bahia.</p>
+  <div class="meta">
+    Projeto: “Economia circular e desenvolvimento territorial” &nbsp;•&nbsp; Horizonte: 5 anos (60 meses) &nbsp;•&nbsp; Foco analítico: Eixo 1 (socioambiental) e Eixo 2 (resíduos/remineralizadores) · atividade de NAE (mercado e risco)
+  </div>
+</header>
+
+<nav class="toc">
+  <b>Sumário</b>
+  <ol>
+    <li><a href="#cap1">Mercados (insumos do Eixo 2)</a></li>
+    <li><a href="#cap2">Riscos (insumos do Eixo 2)</a></li>
+    <li><a href="#cap3">Potencial dos Remineralizadores</a></li>
+    <li><a href="#cap3-risco">— Matriz de riscos dos remineralizadores</a></li>
+    <li><a href="#cap3-bm">— Modelo de negócios</a></li>
+    <li><a href="#cap3-swot">— Matriz SWOT</a></li>
+    <li><a href="#cap4">Mercado e Risco do Eixo Socioambiental</a></li>
+    <li><a href="#cap5">Síntese e Sequenciamento</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="info">
+    <b>Objetivo deste relatório.</b> Organizar as <b>ações necessárias</b> em torno dos temas estratégicos da proposta — <b>Mercados</b> e <b>Riscos</b> — sob responsabilidade do Núcleo de Apoio aos Negócios (NAE), aprofundar o <b>potencial dos remineralizadores de solo</b> (com matriz de riscos, modelo de negócios e SWOT) e analisar os aspectos de mercado e risco do <b>eixo socioambiental</b>. As recomendações são compatíveis com a atividade de NAE prevista no plano (“Análise de potencial de mercado e risco — Gilmar + NAE”) e com o marco regulatório brasileiro de remineralizadores e resíduos.
+  </div>
+
+  <!-- ====================== CAPÍTULO 1 — MERCADOS ====================== -->
+  <h2 class="secao s-mercado" id="cap1">1 · Mercados</h2>
+  <p class="lead">Avaliação do potencial de mercado dos insumos derivados de resíduos de mineração e indústria, e das ações necessárias para transformar o resultado científico em valor econômico.</p>
+
+  <h3>1.1 Contexto de mercado</h3>
+  <p>O Brasil construiu nos últimos anos um arcabouço legal favorável à valorização de pós de rocha e subprodutos minerais como remineralizadores de solo (Lei nº 12.890/2013, Decreto nº 8.384/2014 e Instrução Normativa MAPA nº 05/2016). Esse marco abriu uma via formal para que materiais hoje tratados como passivo da mineração — caso de parte dos estéreis e resíduos da Ferbasa — sejam reposicionados como <b>insumos agrícolas registrados</b>. O segmento, contudo, ainda é jovem: há dezenas de produtos/empresas registrados no MAPA, e o consumo é sensível ao preço relativo dos fertilizantes químicos importados, o que gera oscilações de demanda.</p>
+
+  <div class="grid g3">
+    <div class="kpi k-azul"><span class="num">2013</span><span class="lbl">Marco legal dos remineralizadores (Lei 12.890)</span></div>
+    <div class="kpi k-verde"><span class="num">IN 05/2016</span><span class="lbl">Norma MAPA que define garantias e tolerâncias</span></div>
+    <div class="kpi k-ouro"><span class="num">~80%</span><span class="lbl">Dependência brasileira de fertilizantes importados — janela de substituição</span></div>
+  </div>
+  <p class="legenda">Indicadores de enquadramento. Os valores de mercado específicos deverão ser confirmados pelo NAE com fontes primárias (ABREFEN, SGB/CETEM, MAPA) na fase de diagnóstico.</p>
+
+  <h3>1.2 Segmentos de mercado-alvo dos insumos da parceria</h3>
+  <table>
+    <thead><tr><th>Insumo (Eixo 2)</th><th>Mercado potencial</th><th>Diferencial competitivo</th><th>Atratividade</th></tr></thead>
+    <tbody>
+      <tr><td>Remineralizador de pó de rocha (composto/Bokashi enriquecido)</td><td>Agricultura orgânica e regenerativa; fruticultura; cafeicultura</td><td>Baixo carbono, liberação gradual de nutrientes, apelo de economia circular</td><td><span class="badge b-alto">Alta</span></td></tr>
+      <tr><td>Insumo à base de líquido pirolenhoso (controle de pragas)</td><td>Produção orgânica de fruteiras e mandioca; bioinsumos</td><td>Mercado de bioinsumos em forte expansão; baixo custo de matéria-prima</td><td><span class="badge b-alto">Alta</span></td></tr>
+      <tr><td>Biochar / carvão para adaptação climática</td><td>Sequestro de carbono; mercado de créditos; condicionador de solo</td><td>Conexão com agenda ESG e mercado voluntário de carbono</td><td><span class="badge b-medio">Média</span></td></tr>
+      <tr><td>Escória industrial (corretivo/fonte de Ca-Mg-Si)</td><td>Sistemas <b>não alimentares</b> (eucalipto); correção de acidez</td><td>Volume disponível e baixo custo; restrito pela presença de cromo</td><td><span class="badge b-medio">Média (condicionada ao risco)</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="nota"><b>Insight estratégico.</b> A maior atratividade comercial não está na escória (limitada pela questão do cromo), mas no <b>remineralizador de pó de rocha</b> e no <b>pirolenhoso</b>, que combinam mercado regulado/em crescimento, baixo custo de matéria-prima e narrativa de sustentabilidade alinhada à marca da Ferbasa. A escória deve ser tratada como linha de <b>valorização de passivo</b> em uso não alimentar, não como produto de prateleira.</div>
+
+  <h3>1.3 Ações necessárias — Mercado</h3>
+  <ul class="acoes">
+    <li><b>Estudo de mercado e dimensionamento de demanda</b> para cada insumo, com mapeamento de concorrentes registrados no MAPA. <span class="pill">NAE</span><span class="pill">Ano 1</span></li>
+    <li><b>Análise de cadeia de valor e modelo de negócio</b>: definir se a rota é produto registrado pela Ferbasa, licenciamento de tecnologia Embrapa, ou fornecimento de matéria-prima a terceiros. <span class="pill">NAE + NIT</span></li>
+    <li><b>Precificação e viabilidade econômica (TRL 4 → TRL 6)</b>: custos de processamento, logística do pó de rocha e ponto de equilíbrio frente ao fertilizante químico. <span class="pill">NAE</span></li>
+    <li><b>Estratégia de registro no MAPA</b> dos materiais que se qualificarem como remineralizadores (IN 05/2016). <span class="pill">NIT + NAE</span></li>
+    <li><b>Posicionamento ESG e narrativa de economia circular</b> para acesso a mercados premium (orgânico, carbono). <span class="pill">Comunicação + NAE</span></li>
+    <li><b>Proteção de PI</b> das formulações desenvolvidas. <span class="pill">NIT</span></li>
+  </ul>
+
+  <!-- ====================== CAPÍTULO 2 — RISCOS ====================== -->
+  <h2 class="secao s-risco" id="cap2">2 · Riscos</h2>
+  <p class="lead">Matriz integrada de riscos do projeto sob a ótica de Saúde Única (One Health), com ênfase no risco ambiental e sanitário do cromo presente nos resíduos da Ferbasa.</p>
+
+  <div class="alerta">
+    <b>Risco crítico do projeto: o cromo.</b> A Ferbasa é a maior produtora nacional de cromita/ferroligas, e sua escória de ferro-cromo contém cromo. O ponto decisivo é a <b>especiação química</b>: o cromo trivalente <b>Cr(III)</b> é pouco móvel e de baixa toxicidade, enquanto o cromo hexavalente <b>Cr(VI)</b> é altamente solúvel, móvel, tóxico e reconhecidamente cancerígeno. Nenhuma recomendação de uso agrícola deve ser emitida antes de caracterizar especiação, mobilidade e biodisponibilidade — como prevê o plano de trabalho.
+  </div>
+
+  <h3>2.1 Matriz de riscos do projeto</h3>
+  <table>
+    <thead><tr><th>Risco</th><th>Categoria</th><th>Impacto</th><th>Probabilidade</th><th>Resposta / mitigação</th></tr></thead>
+    <tbody>
+      <tr><td>Mobilização de Cr(VI) e contaminação de solo/água</td><td>Ambiental / Sanitário</td><td><span class="badge b-alto">Alto</span></td><td><span class="badge b-medio">Média</span></td><td>Especiação redox, ensaios de lixiviação/solubilização (NBR 10004/10005/10006), restrição a uso não alimentar, monitoramento de água</td></tr>
+      <tr><td>Bioacumulação de metais em plantas</td><td>Sanitário</td><td><span class="badge b-alto">Alto</span></td><td><span class="badge b-baixo">Baixa</span></td><td>Mandioca como cultura-modelo em ensaio controlado; análise de tecidos vegetais</td></tr>
+      <tr><td>Enquadramento do resíduo como Classe I (perigoso)</td><td>Regulatório</td><td><span class="badge b-alto">Alto</span></td><td><span class="badge b-medio">Média</span></td><td>Classificação ABNT NBR 10004; alinhamento prévio com órgão ambiental e MAPA</td></tr>
+      <tr><td>Reputação / percepção pública do uso de “resíduo” na agricultura</td><td>Reputacional</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-medio">Média</span></td><td>Transparência, cartografia social, comunicação baseada em evidências</td></tr>
+      <tr><td>Inviabilidade comercial após TRL elevado</td><td>Mercado / Financeiro</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-medio">Média</span></td><td>Análise de mercado antecipada (NAE) como gate de decisão por TRL</td></tr>
+      <tr><td>Desalinhamento de escopo/recursos entre parceiros</td><td>Gestão</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-medio">Média</span></td><td>Plano de aplicação de recursos e marcos definidos antes do início</td></tr>
+    </tbody>
+  </table>
+
+  <h3>2.2 Camadas de avaliação de risco (Saúde Única)</h3>
+  <div class="grid g3">
+    <div class="card"><h4>Solo</h4><p>Especiação do cromo, mobilidade, biodisponibilidade, efeito sobre microbiologia e fertilidade. Distinguir material benéfico de material com restrição.</p></div>
+    <div class="card"><h4>Água</h4><p>Monitoramento de lixiviação e percolação; risco de contaminação de recursos hídricos no entorno das áreas demonstrativas.</p></div>
+    <div class="card"><h4>Planta / Saúde humana</h4><p>Absorção e translocação de metais; mandioca como modelo; restrição a sistemas não alimentares enquanto persistir incerteza.</p></div>
+  </div>
+
+  <h3>2.3 Ações necessárias — Risco</h3>
+  <ul class="acoes">
+    <li><b>Caracterização geoquímica e mineralógica completa</b> de cada resíduo, com <b>especiação Cr(III)/Cr(VI)</b> como prioridade absoluta. <span class="pill">Ana + Renai + Luciana</span></li>
+    <li><b>Ensaios de lixiviação e solubilização</b> e classificação conforme ABNT NBR 10004. <span class="pill">Lab. de química</span></li>
+    <li><b>Análise integrada de risco ambiental e sanitário</b> com monitoramento de solo, água e planta. <span class="pill">Equipe Eixo 2 + NAE</span></li>
+    <li><b>Restrição cautelar a sistemas não alimentares</b> (eucalipto) enquanto a segurança não estiver demonstrada. <span class="pill">Fabiana + Mauricio + Álisson</span></li>
+    <li><b>Alinhamento regulatório prévio</b> com órgão ambiental estadual e MAPA. <span class="pill">NIT + NAE</span></li>
+    <li><b>Plano de comunicação e engajamento comunitário.</b> <span class="pill">STT + NUGENE</span></li>
+    <li><b>Gates de decisão por evidência</b>: recomendação de “viabilidade ou restrição” formalizada antes de escalonar. <span class="pill">Coordenação</span></li>
+  </ul>
+
+  <!-- ====================== CAPÍTULO 3 — REMINERALIZADORES ====================== -->
+  <h2 class="secao s-rem" id="cap3">3 · Potencial dos Remineralizadores de Solo</h2>
+  <p class="lead">O coração da proposta: transformar subprodutos minerais em insumos que devolvem nutrientes ao solo, fechando o ciclo da economia circular.</p>
+
+  <h3>3.1 O que são e por que importam</h3>
+  <p>Remineralizadores de solo — produtos da <b>rochagem</b> — são materiais de origem mineral que, aplicados ao solo, alteram seus índices físicos, químicos ou biológicos e fornecem nutrientes de forma gradual. Diferentemente dos fertilizantes solúveis de liberação rápida, atuam pela dissolução lenta de minerais primários, promovendo fornecimento prolongado de macro e micronutrientes, melhoria da estrutura física e estímulo à atividade biológica do solo. Para o Brasil — de solos tropicais intemperizados e fortemente dependente de fertilizantes importados — representam alternativa de baixo carbono e soberania de insumos.</p>
+
+  <div class="grid g2">
+    <div class="card"><h4>Vantagens agronômicas</h4><p>Liberação gradual de K, Ca, Mg, Si e micronutrientes; correção de acidez; aumento da CTC; melhoria da estrutura e da biologia do solo; efeito residual de longa duração.</p></div>
+    <div class="card"><h4>Vantagens estratégicas</h4><p>Economia circular (passivo → insumo); redução de passivos ambientais da mineração; baixo carbono; aderência a sistemas orgânicos e regenerativos; agregação de valor a subprodutos da Ferbasa.</p></div>
+  </div>
+
+  <h3>3.2 Potencial específico dos materiais da Ferbasa</h3>
+  <table>
+    <thead><tr><th>Material</th><th>Potencial como remineralizador</th><th>Condição</th></tr></thead>
+    <tbody>
+      <tr><td>Pó de rocha / estéreis da mineração de cromita</td><td>Fonte potencial de Ca, Mg, Si e micronutrientes; candidato a registro MAPA</td><td>Depende da composição — caracterizar ao menos 3 tipos (conforme plano)</td></tr>
+      <tr><td>Escória de ferro-cromo (Fe-Cr)</td><td>Corretivo de acidez e fonte de Ca/Mg/Si; literatura indica efeito positivo em fertilidade</td><td><b>Condicionada</b> à especiação do cromo e ao uso não alimentar</td></tr>
+      <tr><td>Remineralizador enriquecido (composto/Bokashi)</td><td>Insumo de maior valor agregado para agricultura orgânica/regenerativa</td><td>Desenvolvimento em casa de vegetação → campo (TRL 4→6)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3.3 Validação no Experimento de Longa Duração</h3>
+  <p>O plano prevê tratamento dedicado (<b>T4 – Manejo regenerativo + remineralizador mineral</b>) na Plataforma de Inovação em Saúde do Solo, comparado a manejo convencional (T1), orgânico (T2) e regenerativo (T3). Essa estrutura é o ativo mais valioso da parceria: permite <b>validar cientificamente</b>, ao longo do tempo e em condições reais, o efeito do remineralizador sobre fertilidade, sequestro de carbono e produtividade — gerando a evidência necessária tanto para o registro quanto para a comunicação ao mercado.</p>
+
+  <!-- 3.4 MATRIZ DE RISCOS DOS REMINERALIZADORES -->
+  <h3 id="cap3-risco">3.4 Matriz de riscos específica dos remineralizadores</h3>
+  <p>Diferentemente da matriz geral do projeto (cap. 2), esta matriz foca exclusivamente nos riscos de desenvolvimento e comercialização do produto remineralizador.</p>
+  <table>
+    <thead><tr><th>Risco</th><th>Natureza</th><th>Impacto</th><th>Prob.</th><th>Mitigação</th></tr></thead>
+    <tbody>
+      <tr><td>Material não atender garantias da IN 05/2016 (teores mínimos / limites de contaminantes)</td><td>Técnico/Regulatório</td><td><span class="badge b-alto">Alto</span></td><td><span class="badge b-medio">Média</span></td><td>Caracterização prévia dos 3 tipos; selecionar lotes/jazidas aptas; enriquecimento da formulação</td></tr>
+      <tr><td>Presença de cromo acima de limites para uso agrícola</td><td>Ambiental/Regulatório</td><td><span class="badge b-alto">Alto</span></td><td><span class="badge b-medio">Média</span></td><td>Especiação Cr(III)/Cr(VI); restrição a uso não alimentar; descartar materiais inadequados</td></tr>
+      <tr><td>Eficiência agronômica baixa (dissolução lenta demais)</td><td>Técnico</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-medio">Média</span></td><td>Moagem/granulometria adequada; combinação com matéria orgânica (Bokashi); validação no ELD</td></tr>
+      <tr><td>Custo logístico do pó de rocha inviabiliza o preço final</td><td>Econômico</td><td><span class="badge b-alto">Alto</span></td><td><span class="badge b-medio">Média</span></td><td>Mercado regional (raio curto); aproveitar logística existente da mineração; foco em produto enriquecido de maior valor</td></tr>
+      <tr><td>Demanda volátil (concorrência do fertilizante químico importado)</td><td>Mercado</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-alto">Alta</span></td><td>Posicionamento em nicho orgânico/regenerativo e ESG; contratos de fornecimento</td></tr>
+      <tr><td>Lentidão/incerteza no registro MAPA</td><td>Regulatório</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-medio">Média</span></td><td>Acompanhamento do NIT; iniciar registro cedo; documentação técnica robusta</td></tr>
+      <tr><td>Percepção negativa (“resíduo de mineração no solo”)</td><td>Reputacional</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-medio">Média</span></td><td>Comunicação científica; rastreabilidade; transparência de composição</td></tr>
+    </tbody>
+  </table>
+
+
+
+
+
+
+  <!-- 3.5 MODELO DE NEGÓCIOS -->
+  <h3 id="cap3-bm">3.5 Modelo de negócios dos remineralizadores</h3>
+  <p>Três rotas de negócio são possíveis, não mutuamente exclusivas. A escolha deve ser definida pelo NAE/NIT à luz dos resultados técnicos e da estratégia da Ferbasa.</p>
+  <table>
+    <thead><tr><th>Rota</th><th>Descrição</th><th>Quem produz/vende</th><th>Indicação</th></tr></thead>
+    <tbody>
+      <tr><td><b>A — Produto próprio Ferbasa</b></td><td>Ferbasa beneficia o resíduo e registra/vende o remineralizador</td><td>Ferbasa (com tecnologia Embrapa)</td><td><span class="badge b-baixo">Maior captura de valor</span></td></tr>
+      <tr><td><b>B — Licenciamento de tecnologia</b></td><td>Embrapa licencia a formulação; terceiros produzem</td><td>Terceiros licenciados</td><td><span class="badge b-medio">Menor risco operacional</span></td></tr>
+      <tr><td><b>C — Fornecimento de matéria-prima</b></td><td>Ferbasa vende o pó de rocha/escória a fabricantes de fertilizantes</td><td>Indústria de fertilizantes</td><td><span class="badge b-medio">Mais simples, menor margem</span></td></tr>
+    </tbody>
+  </table>
+
+  <h4>Business Model Canvas — rota recomendada (A: produto próprio enriquecido)</h4>
+  <p class="legenda">Os nove blocos dispostos no layout gerencial clássico. A coluna central (Proposta de Valor) e a base (Custos e Receitas) concentram as decisões estratégicas da parceria.</p>
+  <div class="canvas">
+
+    <div class="bloco c-parcerias">
+      <h5 class="h-parcerias">🤝 Parcerias-chave</h5>
+      <ul>
+        <li>Embrapa (P&D, formulação, validação de campo)</li>
+        <li>NIT / Fundação de apoio (Funarbe) para registro e PI</li>
+        <li>Órgãos reguladores: MAPA e órgão ambiental estadual</li>
+        <li>Distribuidores e revendas agro regionais</li>
+        <li>Cooperativas e associações de produtores</li>
+        <li>Certificadoras (orgânico) e verificadoras de carbono</li>
+        <li>Universidades e laboratórios de análise</li>
+      </ul>
+    </div>
+
+    <div class="bloco c-atividades">
+      <h5 class="h-atividades">⚙️ Atividades-chave</h5>
+      <ul>
+        <li>Beneficiamento, moagem e adequação granulométrica</li>
+        <li>Enriquecimento da formulação (composto/Bokashi)</li>
+        <li>Controle de qualidade e especiação do cromo</li>
+        <li>Registro e manutenção junto ao MAPA</li>
+        <li>Logística e armazenamento</li>
+        <li>Marketing técnico e dias de campo</li>
+      </ul>
+    </div>
+
+    <div class="bloco c-recursos">
+      <h5 class="h-recursos">🏭 Recursos-chave</h5>
+      <ul>
+        <li>Resíduo/pó de rocha (matéria-prima de baixo custo)</li>
+        <li>Tecnologia de formulação da Embrapa</li>
+        <li>Registro MAPA e propriedade intelectual</li>
+        <li>Marca e reputação da Ferbasa</li>
+        <li>Infraestrutura industrial e de logística existente</li>
+        <li>Dados do Experimento de Longa Duração (T4)</li>
+      </ul>
+    </div>
+
+    <div class="bloco c-valor">
+      <h5 class="h-valor">💎 Proposta de Valor</h5>
+      <ul>
+        <li>Remineralizador de <b>baixo carbono</b> e economia circular</li>
+        <li>Liberação gradual de nutrientes; efeito residual prolongado</li>
+        <li>Correção de acidez e melhoria da saúde do solo</li>
+        <li>Insumo apto a sistemas <b>orgânicos e regenerativos</b></li>
+        <li>Redução da dependência de fertilizantes importados</li>
+        <li>Rastreabilidade e respaldo científico Embrapa</li>
+        <li>Histórico de segurança ambiental documentado</li>
+      </ul>
+    </div>
+
+    <div class="bloco c-relac">
+      <h5 class="h-relac">💬 Relacionamento com clientes</h5>
+      <ul>
+        <li>Assistência técnica e recomendação de uso</li>
+        <li>Dias de campo e unidades demonstrativas</li>
+        <li>Contratos de fornecimento B2B</li>
+        <li>Conteúdo técnico e educativo continuado</li>
+        <li>Pós-venda e acompanhamento de resultados</li>
+      </ul>
+    </div>
+
+    <div class="bloco c-canais">
+      <h5 class="h-canais">🚚 Canais</h5>
+      <ul>
+        <li>Revendas agropecuárias e cooperativas</li>
+        <li>Venda direta e contratos B2B</li>
+        <li>Programas ESG / cadeias de grandes compradores</li>
+        <li>Feiras e eventos do setor</li>
+        <li>Canais digitais e marketing técnico</li>
+      </ul>
+    </div>
+
+    <div class="bloco c-segmentos">
+      <h5 class="h-segmentos">🎯 Segmentos de clientes</h5>
+      <ul>
+        <li>Produtores orgânicos e regenerativos</li>
+        <li>Fruticultura e cafeicultura</li>
+        <li>Silvicultura (eucalipto — uso não alimentar)</li>
+        <li>Cooperativas e agricultura familiar</li>
+        <li>Revendas de insumos sustentáveis</li>
+        <li>Empresas com metas ESG / descarbonização</li>
+      </ul>
+    </div>
+
+    <div class="bloco c-custos">
+      <h5 class="h-custos">💰 Estrutura de custos</h5>
+      <ul>
+        <li>Beneficiamento, moagem e enriquecimento</li>
+        <li><b>Logística (custo crítico — baixa densidade de valor)</b></li>
+        <li>Registro MAPA, PI e conformidade regulatória</li>
+        <li>Controle de qualidade e análises laboratoriais</li>
+        <li>Marketing técnico e assistência</li>
+        <li>P&D e manutenção da validação científica</li>
+      </ul>
+    </div>
+
+    <div class="bloco c-receitas">
+      <h5 class="h-receitas">📈 Fontes de receita</h5>
+      <ul>
+        <li>Venda do remineralizador enriquecido (produto principal)</li>
+        <li>Linha premium para mercado orgânico/regenerativo</li>
+        <li>Potencial receita de créditos de carbono</li>
+        <li>Royalties de licenciamento (rota B, complementar)</li>
+        <li>Venda de matéria-prima a terceiros (rota C, complementar)</li>
+        <li>Ganho intangível: valorização de marca e Licença Social</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="nota"><b>Leitura gerencial do Canvas.</b> A vantagem competitiva nasce na base do modelo: a <b>matéria-prima é um passivo já existente</b> da operação (custo de gestão de resíduo convertido em insumo), enquanto a <b>logística é o principal risco de custo</b> por causa da baixa densidade de valor do pó de rocha — daí a recomendação de mercado regional de raio curto e foco no produto enriquecido de maior valor agregado. As receitas combinam o produto principal com fontes complementares (carbono, licenciamento) e o retorno intangível da Licença Social para Operar.</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- 3.6 SWOT -->
+  <h3 id="cap3-swot">3.6 Matriz SWOT — remineralizadores derivados da Ferbasa</h3>
+  <div class="swot">
+    <div class="quad sw-s">
+      <h4>Forças (Strengths)</h4>
+      <ul>
+        <li>Matéria-prima abundante e de baixo custo (passivo já existente)</li>
+        <li>Marco regulatório estabelecido (Lei 12.890/2013, IN 05/2016)</li>
+        <li>Tecnologia e credibilidade científica da Embrapa</li>
+        <li>Alinhamento com economia circular e agenda ESG</li>
+        <li>Validação robusta via Experimento de Longa Duração (T4)</li>
+      </ul>
+    </div>
+    <div class="quad sw-w">
+      <h4>Fraquezas (Weaknesses)</h4>
+      <ul>
+        <li>Presença de cromo exige cautela e pode restringir usos</li>
+        <li>Custo logístico do pó de rocha (baixa densidade de valor)</li>
+        <li>Dissolução lenta — resposta agronômica menos imediata</li>
+        <li>TRL inicial baixo; tempo até produto comercial (até 5 anos)</li>
+        <li>Necessidade de registro e controle de qualidade contínuo</li>
+      </ul>
+    </div>
+    <div class="quad sw-o">
+      <h4>Oportunidades (Opportunities)</h4>
+      <ul>
+        <li>Alta dependência nacional de fertilizantes importados</li>
+        <li>Crescimento dos mercados orgânico, regenerativo e de bioinsumos</li>
+        <li>Mercado de carbono e demanda por insumos de baixo carbono</li>
+        <li>Diferenciação de marca e fortalecimento da Licença Social</li>
+        <li>Possível registro de novos produtos e geração de PI</li>
+      </ul>
+    </div>
+    <div class="quad sw-t">
+      <h4>Ameaças (Threats)</h4>
+      <ul>
+        <li>Concorrência de fertilizantes químicos quando o preço cai</li>
+        <li>Risco regulatório/ambiental ligado ao cromo</li>
+        <li>Percepção pública negativa do uso de resíduos</li>
+        <li>Volatilidade da demanda e do câmbio</li>
+        <li>Mudanças na legislação de resíduos e fertilizantes</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nota"><b>Da incerteza ao valor.</b> O potencial dos remineralizadores só se converte em produto e mercado se sustentado por três pilares simultâneos: <b>(1)</b> evidência agronômica robusta, <b>(2)</b> segurança ambiental comprovada (especialmente quanto ao cromo) e <b>(3)</b> enquadramento regulatório no MAPA. A proposta endereça os três — o sucesso depende de mantê-los integrados.</div>
+
+  <h3>3.7 Ações necessárias — Remineralizadores</h3>
+  <ul class="acoes">
+    <li><b>Caracterizar física, química e mineralogicamente</b> ao menos três tipos de pó de rocha, distinguindo perfil benéfico de perfil com restrição. <span class="pill">Eixo 2</span></li>
+    <li><b>Desenvolver e testar formulações</b> (remineralizador enriquecido, composto, Bokashi) em casa de vegetação e campo. <span class="pill">Ana + Renai</span></li>
+    <li><b>Validar no Experimento de Longa Duração</b> (tratamento T4) com indicadores de solo, carbono e produtividade. <span class="pill">Mauricio + equipe</span></li>
+    <li><b>Definir a rota de negócio</b> (A, B ou C) e buscar registro/qualificação no MAPA dos materiais aptos. <span class="pill">NIT + NAE</span></li>
+    <li><b>Quantificar o balanço de carbono</b> para sustentar o posicionamento de “insumo de baixo carbono”. <span class="pill">Francisco Álisson + RENAI</span></li>
+    <li><b>Difundir resultados</b> (Unidade de Referência, dias de campo, publicações). <span class="pill">STT</span></li>
+  </ul>
+
+  <!-- ====================== CAPÍTULO 4 — EIXO SOCIOAMBIENTAL ====================== -->
+  <h2 class="secao s-social" id="cap4">4 · Mercado e Risco do Eixo Socioambiental</h2>
+  <p class="lead">Aspectos de mercado e risco do Eixo 1 — Agroecologia, educação ambiental e Saúde Única — com foco em (a) fortalecimento de cadeias produtivas locais com fruteiras e mandioca e (b) capacitação técnica e educação ambiental nas comunidades.</p>
+
+  <div class="info">
+    <b>Mudança de lógica.</b> Este eixo não gera um produto comercial para a Ferbasa, como o remineralizador. Seu “mercado” é o <b>fortalecimento econômico das comunidades</b> (geração de renda e acesso a canais de venda) e seu retorno para a Ferbasa é <b>intangível e estratégico</b>: relacionamento com o território e <b>Licença Social para Operar (LSO)</b>. Por isso, mercado e risco aqui são analisados sob ótica distinta da do Eixo 2.
+  </div>
+
+  <h3>4.1 Aspectos de mercado — cadeias de mandioca e fruteiras</h3>
+  <p>O objetivo (a) — fortalecer cadeias produtivas locais com sistemas integrados de fruteiras e mandioca — só se sustenta no tempo se a produção encontrar canais de comercialização remuneradores. A mandioca é cultura estratégica de segurança alimentar, mas sofre com baixo valor agregado, informalidade (casas de farinha) e oscilação de preços; a fruticultura agrega valor, porém exige logística e escala. O principal vetor de mercado para a agricultura familiar nesses sistemas são os <b>mercados institucionais</b>.</p>
+
+  <table>
+    <thead><tr><th>Canal de mercado</th><th>O que viabiliza</th><th>Adequação ao projeto</th></tr></thead>
+    <tbody>
+      <tr><td><b>PNAE</b> — Programa Nacional de Alimentação Escolar</td><td>Compra de no mínimo 30% da alimentação escolar da agricultura familiar; demanda estável e local</td><td><span class="badge b-baixo">Alta</span> — absorve mandioca, farinha, frutas</td></tr>
+      <tr><td><b>PAA</b> — Programa de Aquisição de Alimentos</td><td>Compra pública com doação a entidades; reduz risco de invenda</td><td><span class="badge b-baixo">Alta</span></td></tr>
+      <tr><td>Feiras agroecológicas e venda direta</td><td>Maior margem; valoriza atributo orgânico/agroecológico</td><td><span class="badge b-medio">Média</span> — depende de organização e logística</td></tr>
+      <tr><td>Agroindústria local (casa de farinha, polpas)</td><td>Agregação de valor; aproveitamento de resíduos (manipueira)</td><td><span class="badge b-medio">Média</span> — exige adequação sanitária</td></tr>
+      <tr><td>Bioinsumos comunitários</td><td>Produção local de compostos/biofertilizantes reduz custo de produção</td><td><span class="badge b-baixo">Alta</span> — autonomia produtiva</td></tr>
+    </tbody>
+  </table>
+
+  <div class="nota"><b>Insight de mercado.</b> O maior ganho econômico para as comunidades não virá de “vender mais mandioca a granel”, mas de (1) <b>acessar mercados institucionais</b> (PNAE/PAA), (2) <b>agregar valor</b> via processamento e selo agroecológico, e (3) <b>reduzir custos</b> com bioinsumos próprios. A capacitação do objetivo (b) é o que destrava esses três caminhos — por isso mercado e capacitação são indissociáveis neste eixo.</div>
+
+  <h4>Ações necessárias — Mercado (Eixo 1)</h4>
+  <ul class="acoes">
+    <li><b>Mapear canais de comercialização</b> acessíveis a cada comunidade (PNAE, PAA, feiras, agroindústria) no diagnóstico participativo inicial. <span class="pill">Fabiana + NAE + STT</span></li>
+    <li><b>Apoiar a organização produtiva</b> (associações/cooperativas, DAP/CAF) como pré-requisito de acesso aos mercados institucionais. <span class="pill">STT + SISAGRE</span></li>
+    <li><b>Estruturar agregação de valor</b> nas casas de farinha (adequação sanitária, aproveitamento da manipueira). <span class="pill">Renai + NUGENE</span></li>
+    <li><b>Promover bioinsumos comunitários</b> (compostagem, biofertilizantes, pirolenhoso) para reduzir custo de produção. <span class="pill">Equipe Eixo 1</span></li>
+    <li><b>Conectar com o programa de Responsabilidade Social da Ferbasa</b> para apoio logístico e de comercialização. <span class="pill">Ferbasa + Embrapa</span></li>
+  </ul>
+
+  <h3>4.2 Aspectos de risco — comunidades e capacitação</h3>
+  <p>Os riscos deste eixo são predominantemente <b>sociais, de gestão e reputacionais</b>. O mais relevante é o risco de <b>descontinuidade</b>: projetos de agroecologia e educação ambiental frequentemente perdem efeito quando o aporte externo cessa, se não houver apropriação local. Há ainda o risco reputacional inverso — uma ação socioambiental percebida como “maquiagem” (<i>social washing</i>) de uma mineradora pode <b>corroer</b> a Licença Social para Operar em vez de fortalecê-la.</p>
+
+  <table>
+    <thead><tr><th>Risco</th><th>Categoria</th><th>Impacto</th><th>Probabilidade</th><th>Mitigação</th></tr></thead>
+    <tbody>
+      <tr><td>Descontinuidade após o fim do aporte (não apropriação local)</td><td>Sustentabilidade</td><td><span class="badge b-alto">Alto</span></td><td><span class="badge b-medio">Média</span></td><td>Protagonismo comunitário, formação de multiplicadores, monitoramento participativo, unidades de referência permanentes</td></tr>
+      <tr><td>Percepção de cooptação / “social washing”</td><td>Reputacional</td><td><span class="badge b-alto">Alto</span></td><td><span class="badge b-medio">Média</span></td><td>Transparência, mediação científica neutra da Embrapa, cartografia social, metas públicas</td></tr>
+      <tr><td>Baixa adesão ou evasão das comunidades</td><td>Social</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-medio">Média</span></td><td>Diagnóstico participativo prévio; partir das demandas reais; respeitar saberes locais</td></tr>
+      <tr><td>Falta de acesso a mercado inviabiliza a renda gerada</td><td>Econômico</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-medio">Média</span></td><td>Mapear canais antes de aumentar produção (ver 4.1); apoio à organização produtiva</td></tr>
+      <tr><td>Conflito entre expectativas da comunidade e escopo do projeto</td><td>Gestão</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-medio">Média</span></td><td>Pactuação clara de papéis e entregas; gestão de expectativas</td></tr>
+      <tr><td>Riscos sanitários/ambientais nas casas de farinha (manipueira)</td><td>Saúde Única</td><td><span class="badge b-medio">Médio</span></td><td><span class="badge b-baixo">Baixa</span></td><td>Avaliação socioambiental dos resíduos e manejo agroecológico (já previsto no plano)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alerta">
+    <b>O risco-chave é a continuidade.</b> Toda a estratégia de Licença Social depende de as comunidades <b>se apropriarem</b> das práticas e seguirem produzindo após o projeto. Capacitação que gera dependência (e não autonomia) converte um benefício de longo prazo em passivo reputacional quando termina. O desenho deve priorizar multiplicadores locais, unidades de referência permanentes e organização produtiva autônoma.
+  </div>
+
+  <h4>Ações necessárias — Risco (Eixo 1)</h4>
+  <ul class="acoes">
+    <li><b>Diagnóstico socioambiental participativo</b> e cartografia social antes de qualquer intervenção. <span class="pill">Fabiana + NAE + STT</span></li>
+    <li><b>Estratégia de continuidade desde o desenho</b>: formação de agentes multiplicadores e governança comunitária. <span class="pill">NUGENE + SISAGRE</span></li>
+    <li><b>Mecanismos de monitoramento participativo</b> de solo, água e indicadores sociais. <span class="pill">Comunidade + Embrapa</span></li>
+    <li><b>Comunicação transparente e baseada em evidências</b>, com a Embrapa como mediadora técnica neutra. <span class="pill">STT + Comunicação</span></li>
+    <li><b>Indicadores de impacto social</b> (renda, segurança alimentar, adesão) acompanhados pelo NAE. <span class="pill">NAE</span></li>
+    <li><b>Pactuação de expectativas</b> entre comunidade, Embrapa e Ferbasa, com papéis e entregas explícitos. <span class="pill">Coordenação</span></li>
+  </ul>
+
+  <div class="grid g3">
+    <div class="kpi k-verde"><span class="num">30%</span><span class="lbl">Mínimo da compra do PNAE reservado à agricultura familiar — mercado-âncora</span></div>
+    <div class="kpi k-terra"><span class="num">LSO</span><span class="lbl">Licença Social para Operar: principal retorno estratégico da Ferbasa neste eixo</span></div>
+    <div class="kpi k-azul"><span class="num">Saúde Única</span><span class="lbl">Integra solo, água, biodiversidade e bem-estar social como métrica de sucesso</span></div>
+  </div>
+
+  <!-- ====================== CAPÍTULO 5 — SÍNTESE ====================== -->
+  <h2 class="secao s-sintese" id="cap5">5 · Síntese e Sequenciamento</h2>
+  <p class="lead">Como Mercados, Riscos, Remineralizadores e o Eixo Socioambiental se conectam ao longo dos 60 meses do projeto.</p>
+
+  <div class="timeline">
+    <div class="fase"><b>Ano 1 — Diagnóstico e linha de base.</b> Caracterização dos resíduos e especiação do cromo; estudo de mercado dos insumos (NAE); diagnóstico socioambiental participativo e mapeamento de canais de comercialização; instalação do Experimento de Longa Duração.</div>
+    <div class="fase"><b>Anos 2–3 — Desenvolvimento (TRL 4).</b> Formulação dos insumos; ensaios controlados com mandioca; primeiros resultados de risco ambiental; implantação de hortas/unidades demonstrativas e capacitações; acesso inicial a mercados institucionais (PNAE/PAA).</div>
+    <div class="fase"><b>Anos 3–4 — Validação de campo.</b> Ensaios em eucalipto; evolução do T4; análise integrada de risco; consolidação da organização produtiva comunitária e dos multiplicadores locais; gate de decisão de viabilidade comercial e definição da rota de negócio.</div>
+    <div class="fase"><b>Ano 5 — Escalonamento (TRL 6), difusão e legado.</b> Qualificação/registro do insumo; recomendações técnicas; comunicação de mercado/ESG; transferência de tecnologia; consolidação da autonomia das comunidades como estratégia de continuidade e Licença Social.</div>
+  </div>
+
+  <div class="info">
+    <b>Recomendação executiva.</b> Tratar a atividade de NAE (“potencial de mercado e risco”) como um <b>processo contínuo de <i>stage-gate</i></b>: a cada avanço de TRL, reavaliar mercado e risco antes de comprometer recursos. No Eixo 2, isso protege contra investir em insumo agronomicamente promissor mas ambientalmente restrito (escória com cromo) ou inviável comercialmente. No Eixo 1, o equivalente é <b>condicionar a expansão produtiva ao acesso real a mercado</b> e <b>priorizar a apropriação local</b>, garantindo que o investimento social se converta em Licença Social duradoura — e não em passivo reputacional ao término do projeto.
+  </div>
+
+</main>
+
+<footer>
+  <b>Relatório Gerencial — Parceria Embrapa Mandioca e Fruticultura × Ferbasa.</b><br>
+  Documento de apoio à discussão do Plano de Trabalho. As recomendações baseiam-se no conteúdo da proposta anexa e no marco regulatório brasileiro (Lei 12.890/2013, Decreto 8.384/2014, IN MAPA 05/2016, ABNT NBR 10004; PNAE e PAA para mercados institucionais). Valores de mercado e itens financeiros (seções 7 e 8 do plano) permanecem a definir e devem ser confirmados pelo NAE com fontes primárias.<br><br>
+  <span style="opacity:.7">Natureza: subsídio técnico-gerencial · Não constitui recomendação de investimento ou parecer jurídico/ambiental definitivo.</span>
+</footer>
+
+</div>
+</body>
+</html>
