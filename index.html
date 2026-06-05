@@ -214,6 +214,19 @@ h2.s-anexo{background:linear-gradient(90deg,var(--terra),var(--verde));}
 .vert-card .lbl{background:#1f6f7e;color:#fff;padding:10px 8px;text-align:center;font-size:.82rem;font-weight:600;min-height:48px;display:flex;align-items:center;justify-content:center;}
 @media(max-width:760px){.fl-publicos,.fl-verticais{grid-template-columns:1fr 1fr;}}
 
+/* ===== 1.5.1 Ferbasa — dados corporativos ===== */
+.ferbasa-box{border:1px solid var(--cinza-borda);border-left:6px solid var(--azul);border-radius:11px;padding:18px 22px;margin:16px 0;background:#fbfcfd;}
+.ferbasa-box h4{color:var(--azul);margin:0 0 10px;}
+.dados-corp{width:100%;font-size:.86rem;}
+.dados-corp td{border:1px solid var(--cinza-borda);padding:7px 10px;}
+.dados-corp td.rot{background:#eef3f6;color:var(--azul);font-weight:600;width:34%;}
+.ferbasa-imgs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+.ferbasa-imgs figure{margin:0;border:1px solid var(--cinza-borda);border-radius:10px;overflow:hidden;background:#fff;}
+.ferbasa-imgs img{width:100%;height:auto;display:block;}
+.ferbasa-imgs figcaption{font-size:.8rem;color:#4a5b63;padding:8px 10px;text-align:center;}
+.ferbasa-imgs figure.f1{border-top:4px solid var(--terra);}
+.ferbasa-imgs figure.f2{border-top:4px solid var(--verde);}
+@media(max-width:760px){.ferbasa-imgs{grid-template-columns:1fr;}}
 
 
 </style>
@@ -307,7 +320,54 @@ h2.s-anexo{background:linear-gradient(90deg,var(--terra),var(--verde));}
   </table>
 
   <h3>1.5 Atores envolvidos</h3>
-  <p>Equipe multidisciplinar da Embrapa (pesquisadores das áreas de solo, fruticultura, mandioca, entomologia, carbono e socioeconomia, além de NAE, NIT, STT, SISAGRE e NUGENE), em parceria com a Ferbasa e seu programa de Responsabilidade Social, com apoio de fundação (Funarbe) para gestão. As comunidades dos territórios impactados são participantes ativas, não apenas beneficiárias.</p>
+  <p>Equipe multidisciplinar da Embrapa (pesquisadores das áreas de solo, fruticultura, mandioca, entomologia, carbono e socioeconomia, além do NAE, STT, SISAGRE e NUGENE), em parceria com a Ferbasa e seu programa de Responsabilidade Social, com apoio de fundação (Funarbe) para gestão. As comunidades dos territórios impactados são participantes ativas, não apenas beneficiárias.</p>
+
+
+  <!-- 1.5.1 FERBASA — DADOS CORPORATIVOS -->
+  <h4 id="cap1-ferbasa" style="font-size:1.12rem;border-left:4px solid var(--ouro);padding-left:10px;">1.5.1 A Ferbasa — perfil corporativo</h4>
+  <p>Fundada em <b>23 de fevereiro de 1961</b> pelo engenheiro José Corgosinho de Carvalho Filho, a
+  <b>Companhia de Ferro Ligas da Bahia (Ferbasa)</b> é hoje uma das 500 maiores empresas do Brasil e está
+  entre as 10 maiores da Bahia, com faturamento anual superior a <b>US$ 350 milhões</b>. Atua de forma
+  integrada em <b>metalurgia, mineração, recursos florestais e energia renovável</b>, sendo líder na
+  produção de ferroligas e a <b>única produtora integrada de ferrocromo das Américas</b>, com forte
+  atuação socioambiental.</p>
+
+  <div class="ferbasa-box">
+    <h4>Dados corporativos</h4>
+    <table class="dados-corp">
+      <tbody>
+        <tr><td class="rot">Razão Social</td><td>Cia de Ferro Ligas da Bahia – FERBASA</td></tr>
+        <tr><td class="rot">CNPJ</td><td>15.141.799/0001-03</td></tr>
+        <tr><td class="rot">Fundação</td><td>23/02/1961 (registro em 28/02/1961)</td></tr>
+        <tr><td class="rot">Sede industrial</td><td>Estrada de Santiago, s/n — 48120-000 — Pojuca/BA · Tel. (71) 3645-8700</td></tr>
+        <tr><td class="rot">Escritório corporativo</td><td>Rua Ewerton Visco, 290 — Ed. Boulevard Side Empresarial, 25º andar — Caminho das Árvores — CEP 41820-022 — Salvador/BA · Tel. (71) 3404-3000</td></tr>
+        <tr><td class="rot">E-mail</td><td>ferbasa@ferbasa.com.br</td></tr>
+        <tr><td class="rot">Áreas de atuação</td><td>Metalurgia · Mineração · Recursos florestais (eucalipto) · Energia renovável (eólica)</td></tr>
+        <tr><td class="rot">Porte / posição</td><td>Entre as 500 maiores do Brasil e 10 maiores da Bahia; faturamento anual &gt; US$ 350 milhões</td></tr>
+      </tbody>
+    </table>
+    <p class="legenda">Fonte: site institucional da Ferbasa (ferbasa.com.br — seção “Quem Somos”).</p>
+  </div>
+
+  <div class="ferbasa-imgs">
+    <figure class="f1">
+      <!-- SUBSTITUA o src abaixo pelo link/arquivo da imagem "ferbasa1" -->
+      <img src="ferbasa1.png" alt="Áreas de atuação da Ferbasa">
+      <figcaption><b>Onde a Ferbasa atua</b> — metalurgia, mineração, recursos florestais e energia renovável.</figcaption>
+    </figure>
+    <figure class="f2">
+      <!-- SUBSTITUA o src abaixo pelo link/arquivo da imagem "ferbasa2" -->
+      <img src="ferbasa2.png" alt="Atuação da Ferbasa na economia circular">
+      <figcaption><b>Como atua na economia circular</b> — valorização de resíduos e reaproveitamento de subprodutos.</figcaption>
+    </figure>
+  </div>
+
+  <div class="nota"><b>Conexão com o projeto.</b> A diversificação da Ferbasa (mineração + silvicultura + metalurgia) é
+  exatamente o que gera os <b>resíduos e subprodutos</b> avaliados no Eixo 2, tornando a empresa um parceiro natural
+  para a agenda de <b>economia circular</b> e de baixo carbono desenvolvida com a Embrapa.</div>
+
+
+
 
   <!-- 1.6 OPORTUNIDADES WIN-WIN -->
   <h3 id="cap1-winwin">1.6 Oportunidades do projeto — a lógica win-win</h3>
