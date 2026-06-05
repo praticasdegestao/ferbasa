@@ -13,11 +13,18 @@
   *{box-sizing:border-box;}
   body{font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; margin:0; color:var(--texto); background:#eef2f3; line-height:1.55;}
   .wrap{max-width:1080px; margin:0 auto; background:#fff; box-shadow:0 0 24px rgba(0,0,0,.08);}
-  header.capa{background:linear-gradient(135deg,var(--azul) 0%,var(--azul-claro) 55%,var(--verde) 100%); color:#fff; padding:48px 44px 40px;}
-  header.capa .tag{display:inline-block; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.4); padding:5px 14px; border-radius:20px; font-size:.78rem; letter-spacing:.5px; text-transform:uppercase; margin-bottom:18px;}
-  header.capa h1{font-size:1.9rem; margin:0 0 10px; line-height:1.25;}
-  header.capa p.sub{font-size:1.02rem; margin:0; opacity:.92; max-width:760px;}
-  header.capa .meta{margin-top:24px; font-size:.85rem; opacity:.85; border-top:1px solid rgba(255,255,255,.25); padding-top:14px;}
+
+
+   header.capa{background:#fff; color:var(--azul); padding:48px 44px 40px; border-bottom:4px solid var(--ouro);}
+
+
+  header.capa .tag{display:inline-block; background:rgba(224,123,28,.12); border:1px solid rgba(224,123,28,.45); color:#c35a10; padding:6px 16px; border-radius:20px; font-size:.95rem; font-weight:700; letter-spacing:.5px; text-transform:uppercase; margin-bottom:18px;}
+  header.capa h1{font-size:2.4rem; margin:0 0 12px; line-height:1.25; color:#0b3d59; font-weight:800;}
+  header.capa p.sub{font-size:1.25rem; margin:0; color:#1b5e20; font-weight:600; max-width:760px;}
+  header.capa .meta{margin-top:24px; font-size:1.02rem; color:#c35a10; font-weight:600; border-top:1px solid rgba(11,61,89,.20); padding-top:14px;}
+  header.capa .meta b{color:#0b3d59;}
+
+
   nav.toc{background:#0a3247; color:#dce8ee; padding:20px 44px;}
   nav.toc b{display:block; font-size:.8rem; text-transform:uppercase; letter-spacing:1px; color:#7fc4dd; margin-bottom:10px;}
   nav.toc ol{margin:0; padding-left:20px; columns:2; column-gap:34px;}
@@ -122,7 +129,7 @@
 
 
 
-<style>
+
 /* ===== ANEXO — FARM LAB / LABORATÓRIO VIVO ===== */
 h2.s-anexo{background:linear-gradient(90deg,var(--terra),var(--verde));}
 
@@ -190,6 +197,22 @@ h2.s-anexo{background:linear-gradient(90deg,var(--terra),var(--verde));}
 }
 
 
+/* ===== A.6 Públicos-alvo e Verticais (cards ilustrativos) ===== */
+.fl-publicos{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0;}
+.pub-card{background:#fff;border:1px solid var(--cinza-borda);border-radius:11px;padding:16px;text-align:center;}
+.pub-card .ico{font-size:2rem;display:block;margin-bottom:8px;}
+.pub-card h4{margin:0 0 6px;font-size:1rem;}
+.pub-card p{margin:0;font-size:.8rem;color:#444;}
+.pub-card.p1{border-top:5px solid var(--azul);} .pub-card.p1 h4{color:var(--azul);}
+.pub-card.p2{border-top:5px solid var(--terra);} .pub-card.p2 h4{color:var(--terra);}
+.pub-card.p3{border-top:5px solid var(--verde);} .pub-card.p3 h4{color:var(--verde);}
+.pub-card.p4{border-top:5px solid var(--ouro);} .pub-card.p4 h4{color:#b8860b;}
+
+.fl-verticais{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0;}
+.vert-card{border-radius:11px;overflow:hidden;border:1px solid var(--cinza-borda);}
+.vert-card .top{height:64px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:#fff;background:linear-gradient(135deg,#0f4c5c,#2a9d8f);}
+.vert-card .lbl{background:#1f6f7e;color:#fff;padding:10px 8px;text-align:center;font-size:.82rem;font-weight:600;min-height:48px;display:flex;align-items:center;justify-content:center;}
+@media(max-width:760px){.fl-publicos,.fl-verticais{grid-template-columns:1fr 1fr;}}
 
 
 
@@ -200,7 +223,7 @@ h2.s-anexo{background:linear-gradient(90deg,var(--terra),var(--verde));}
 
 
 
-</style>
+
 </head>
 <body>
 <div class="wrap">
@@ -924,6 +947,57 @@ cultivares, sistemas agroflorestais — atraindo empresas, startups e universida
 parceria. A Ferbasa entra como o <b>primeiro caso de uso (âncora)</b>, mas cada novo parceiro
 contribui para a sustentabilidade econômica e para a maturação do ecossistema.</p>
 
+<h3>A.6 Oportunidades de uso futuro: públicos-alvo e verticais tecnológicas</h3>
+<p>No horizonte de maturação do Farm Lab, a Fazendinha pode atender a quatro grandes
+<b>públicos-alvo</b> e organizar suas atividades em <b>verticais tecnológicas</b>, ampliando
+o alcance muito além do caso âncora Embrapa–Ferbasa. A representação abaixo ilustra esse potencial.</p>
+
+<h4 style="color:var(--azul);margin:14px 0 6px;">Públicos-alvo do ecossistema</h4>
+<div class="fl-publicos">
+  <div class="pub-card p1">
+    <span class="ico">🏢</span>
+    <h4>Corporações</h4>
+    <p>Hub de inovação aberta para testar soluções em ambiente real e conectar empresas, agricultores e parceiros para gerar novos negócios.</p>
+  </div>
+  <div class="pub-card p2">
+    <span class="ico">🚀</span>
+    <h4>Startups / AgTechs</h4>
+    <p>Metodologia robusta de implantação de experimentos e Provas de Conceito (POCs), com selo de validação da unidade de pesquisa.</p>
+  </div>
+  <div class="pub-card p3">
+    <span class="ico">🌾</span>
+    <h4>Agricultores</h4>
+    <p>Testes em fazendas reais para validar soluções prontas, equilibrando rentabilidade, sustentabilidade e produtividade.</p>
+  </div>
+  <div class="pub-card p4">
+    <span class="ico">📈</span>
+    <h4>Fundos de Investimento</h4>
+    <p>Ambiente ideal para avaliar startups e identificar oportunidades de investimento em contato direto com grandes corporações.</p>
+  </div>
+</div>
+
+<h4 style="color:var(--verde);margin:18px 0 6px;">Verticais tecnológicas</h4>
+<div class="fl-verticais">
+  <div class="vert-card"><div class="top">🧠</div><div class="lbl">Inteligência Artificial</div></div>
+  <div class="vert-card"><div class="top">🌐</div><div class="lbl">IoT (Internet das Coisas)</div></div>
+  <div class="vert-card"><div class="top">🤖</div><div class="lbl">Robótica e Automação</div></div>
+  <div class="vert-card"><div class="top">💻</div><div class="lbl">Software para suporte à decisão</div></div>
+  <div class="vert-card"><div class="top">🌱</div><div class="lbl">Sistemas de produção sustentáveis</div></div>
+  <div class="vert-card"><div class="top">🧪</div><div class="lbl">Bioinsumos</div></div>
+  <div class="vert-card"><div class="top">🛰️</div><div class="lbl">Sensoriamento remoto</div></div>
+  <div class="vert-card"><div class="top">🐛</div><div class="lbl">Manejo integrado de pragas e doenças</div></div>
+</div>
+
+<div class="nota"><b>Conexão com o projeto.</b> As verticais <b>Bioinsumos</b> e <b>Sistemas de produção
+sustentáveis</b> são diretamente atendidas pelo caso âncora (remineralizadores e valorização de
+resíduos), enquanto <b>Sensoriamento remoto</b>, <b>IoT</b> e <b>IA</b> ampliam o monitoramento do
+Experimento de Longa Duração. As demais verticais abrem espaço para novos parceiros e fontes de
+financiamento, consolidando a vocação multiprojeto da Fazendinha.</div>
+
+
+
+
+
 <div class="box-winwin">
   <h4>🤝 Síntese — a lógica win-win do Farm Lab</h4>
   <p>O Farm Lab transforma uma área experimental em um <b>ativo de inovação compartilhado</b>:
@@ -933,7 +1007,7 @@ contribui para a sustentabilidade econômica e para a maturação do ecossistema
   replicável e alinhado aos ODS 2, 4, 8, 9 e 12.</p>
 </div>
 
-<h3>A.6 Ações necessárias para implantação</h3>
+<h3>A.7 Ações necessárias para implantação</h3>
 <table>
   <thead><tr><th>Fase</th><th>Ação</th><th>Horizonte</th></tr></thead>
   <tbody>
